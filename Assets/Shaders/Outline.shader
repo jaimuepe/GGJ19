@@ -13,7 +13,7 @@ Shader "Custom/Outline"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Transparent" }
         LOD 200
 
 		Pass
