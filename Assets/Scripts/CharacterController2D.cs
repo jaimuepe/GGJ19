@@ -8,6 +8,8 @@ public class CharacterController2D : MonoBehaviour
     public Movementparameters movementParameters;
     public CollisionParameters collisionParameters;
 
+    public float smoothSpeed;
+
     private Transform mTransform;
 
     [Header("Debug")]
@@ -21,6 +23,8 @@ public class CharacterController2D : MonoBehaviour
     public JumpGravitySystem jumpSystem;
     [NonSerialized]
     public CollisionSystem collisionSystem;
+    [NonSerialized]
+    public StairsSystem stairsSystem;
 
     private void Awake()
     {
@@ -43,6 +47,12 @@ public class CharacterController2D : MonoBehaviour
         {
             jumpSystem = gameObject.AddComponent<JumpGravitySystem>();
         }
+
+        stairsSystem = GetComponent<StairsSystem>();
+        if (!stairsSystem)
+        {
+            stairsSystem = gameObject.AddComponent<StairsSystem>();
+        }
     }
 
     public void RequestMove(float moveDirection)
@@ -54,16 +64,6 @@ public class CharacterController2D : MonoBehaviour
         }
 
         movementSystem.Direction = moveDirection;
-    }
-
-    public void RequestJump()
-    {
-        jumpSystem.TryJump();
-    }
-
-    public void RequestStopJumping()
-    {
-        jumpSystem.Jumping = false;
     }
 
     private void Update()
@@ -87,11 +87,13 @@ public class CharacterController2D : MonoBehaviour
         ResolvePosition(deltaMovement);
 
         movementSystem.ClearVariablesEndFrame();
-        jumpSystem.ClearVariablesEndFrame();
     }
 
     private void ResolvePosition(Vector2 deltaMovement)
     {
-        mTransform.position += new Vector3(deltaMovement.x, deltaMovement.y);
+        mTransform.position = new Vector3(
+                Mathf.Lerp(mTransform.position.x, mTransform.position.x + deltaMovement.x, smoothSpeed * Time.deltaTime),
+                mTransform.position.y + deltaMovement.y,
+                mTransform.position.z);
     }
 }
