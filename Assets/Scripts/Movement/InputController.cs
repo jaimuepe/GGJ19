@@ -7,12 +7,16 @@ public class InputController : MonoBehaviour
 
     private CharacterController2D characterController2D;
 
+    private bool _gamepadConnected;
     public float HorizontalInput { get; private set; }
     public float VerticalInput { get; private set; }
 
     private void Start()
     {
         characterController2D = FindObjectOfType<CharacterController2D>();
+        string[] joystickNames = Input.GetJoystickNames();
+        _gamepadConnected = joystickNames.Length > 0 ? true : false;
+        Debug.Log("Gamedpads connected:" + _gamepadConnected);
     }
 
     private void Update()
@@ -23,15 +27,39 @@ public class InputController : MonoBehaviour
 
     private void GetInput()
     {
-        HorizontalInput = Input.GetAxisRaw("Horizontal");
-        VerticalInput = Input.GetAxisRaw("Vertical");
+        if (true)
+        {
+            HorizontalInput = Input.GetAxisRaw("Horizontal");
+            VerticalInput = Input.GetAxisRaw("Vertical");
+        }
+        else
+        {
+            HorizontalInput = Input.GetAxisRaw("HorizontalXbox360");
+            VerticalInput = Input.GetAxisRaw("Vertical");
+        }
+
+        if (Input.GetButtonDown("ActionButtonXbox360"))
+        {
+            Debug.Log("Action Button pushed");
+        }
+        
     }
 
     private void ProcessInput()
     {
-        if (HorizontalInput != 0.0f)
+        if (!_gamepadConnected)
         {
-            characterController2D.RequestHorizontal(HorizontalInput);
+            if (HorizontalInput != 0.0f)
+            {
+                characterController2D.RequestHorizontal(HorizontalInput);
+            }
+        }
+        else
+        {
+            if (Mathf.Abs(HorizontalInput)>0.9f)
+            {
+                characterController2D.RequestHorizontal(HorizontalInput);
+            }
         }
     }
 }

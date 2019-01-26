@@ -45,6 +45,7 @@ public class BreakableDoor : MonoBehaviour
 
     public void HeadButt()
     {
+        Camera.main.GetComponent<FinalCamera>().ShakeCamera(0.075f, 0.5f);
         hits--;
         UpdateSprite();
         StartCoroutine(IEShake());
