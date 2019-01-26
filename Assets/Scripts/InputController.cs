@@ -23,7 +23,7 @@ public class InputController : MonoBehaviour
 
     private void ProcessInput()
     {
-        Debug.Log(moveDirection != 0.0f);
+        //Debug.Log(moveDirection != 0.0f);
 
         if (moveDirection != 0.0f)
         {

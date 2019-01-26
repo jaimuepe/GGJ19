@@ -6,15 +6,15 @@ public class InteractableObject : MonoBehaviour
 {
     private Material m_Material;
     private Coroutine interactAnimationCoroutine;
-    [SerializeField]
-    private float MaxAlphaValue = 200;
-    private float AlphaIntervalChangeTime = 0.001f;
-    [SerializeField]
-    private float ChangeAlphaValue = 0.0075f;
+    private float MaxAlphaValue = 100;
+    private float AlphaIntervalChangeTime = 0.0001f;
+    private float ChangeAlphaValue = 0.005f;
+    private Animator m_Animator;
 
     void Start()
     {
         m_Material = GetComponent<MeshRenderer>().material;
+        m_Animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -22,24 +22,40 @@ public class InteractableObject : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Object trigger activated: Enter");
-        if (interactAnimationCoroutine != null)
+        switch (other.tag)
         {
-            StopCoroutine(interactAnimationCoroutine);
+            case "Player":
+                Debug.Log("Object trigger activated: Enter");
+                if (interactAnimationCoroutine != null)
+                {
+                    StopCoroutine(interactAnimationCoroutine);
+                }
+                //interactAnimationCoroutine = StartCoroutine(InteractAnimation());
+                m_Animator.Play("InteractAnimation");
+                break;
+            default:
+                break;
         }
-        interactAnimationCoroutine = StartCoroutine(InteractAnimation());
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("Object trigger activated: Exit");
-        if (interactAnimationCoroutine != null)
+        switch (other.tag)
         {
-            StopCoroutine(interactAnimationCoroutine);
+            case "Player":
+                Debug.Log("Object trigger activated: Exit");
+                if (interactAnimationCoroutine != null)
+                {
+                    StopCoroutine(interactAnimationCoroutine);
+                }
+                //interactAnimationCoroutine = StartCoroutine(InteractAnimation(true));
+                m_Animator.Play("InteractAnimation_R");
+                break;
+            default:
+                break;
         }
-        interactAnimationCoroutine = StartCoroutine(InteractAnimation(true));
     }
 
     IEnumerator InteractAnimation(bool inverse = false)
@@ -49,11 +65,15 @@ public class InteractableObject : MonoBehaviour
         {
             for (int i = 0; i <= MaxAlphaValue; i++)
             {
-                if (currentColor.a != 0)
+                if (currentColor.a > 0)
                 {
                     currentColor = m_Material.GetColor("_OutlineColor");
                     m_Material.SetColor("_OutlineColor", new Color(currentColor.r, currentColor.g, currentColor.b, currentColor.a - ChangeAlphaValue));
                     yield return new WaitForSeconds(AlphaIntervalChangeTime);
+                }
+                else
+                {
+                    break;
                 }
             }
         }
