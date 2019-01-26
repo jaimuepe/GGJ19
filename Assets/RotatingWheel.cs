@@ -20,12 +20,16 @@ public class RotatingWheel : MonoBehaviour
         rotatingWheels = FindObjectsOfType<RotatingWheel>();
     }
 
+    public FMODUnity.StudioEventEmitter switchEmitter;
+
     public void Rotate()
     {
         if (!usable)
         {
             return;
         }
+
+        switchEmitter.Play();
 
         transform.Rotate(new Vector3(0.0f, 0.0f, -rotationDegrees));
         rotatingFish.Rotate(rotationDegrees);
@@ -37,10 +41,10 @@ public class RotatingWheel : MonoBehaviour
         bool rightSolution = true;
         for (int i = 0; i < rotatingWheels.Length; i++)
         {
-            int angle = (int)rotatingWheels[i].transform.eulerAngles.z;
-            int targetAngle = (int)rotatingWheels[i].targetAngle;
+            float angle = rotatingWheels[i].transform.eulerAngles.z;
+            float targetAngle = rotatingWheels[i].targetAngle;
 
-            if (angle != targetAngle)
+            if (Mathf.Abs(angle - targetAngle) > 5.0f)
             {
                 rightSolution = false;
                 break;
@@ -53,6 +57,8 @@ public class RotatingWheel : MonoBehaviour
             {
                 rotatingWheels[i].usable = false;
             }
+
+            InteractionsManager.Instance.ResolveInteraction("wheel_puzzle_ok", gameObject);
         }
     }
 }

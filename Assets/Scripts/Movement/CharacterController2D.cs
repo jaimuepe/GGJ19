@@ -36,7 +36,6 @@ public class CharacterController2D : MonoBehaviour
 
     public bool WalkRightEndlessly { get; set; } = false;
 
-    public FMODUnity.StudioEventEmitter clothEmitter;
     public FMODUnity.StudioEventEmitter squeakEmitter;
 
     private void Awake()
@@ -118,7 +117,6 @@ public class CharacterController2D : MonoBehaviour
 
         if (deltaMovement.x != 0.0f)
         {
-            clothEmitter.SetParameter("active", 0.0f);
             MovementDirection = deltaMovement.x > 0.0f ? 1 : 0;
             int direction = (int)Mathf.Sign(deltaMovement.x);
 
@@ -126,10 +124,6 @@ public class CharacterController2D : MonoBehaviour
             {
                 Rotate(direction);
             }
-        }
-        else
-        {
-            clothEmitter.SetParameter("active", 0.0f);
         }
 
         mAnimator.SetBool("walk", deltaMovement.x != 0.0f);
@@ -170,7 +164,7 @@ public class CharacterController2D : MonoBehaviour
         {
             if (deltaMovement.x != 0.0f)
             {
-                squeakEmitter.Play();
+                // squeakEmitter.Play();
             }
             yield return new WaitForSeconds(1.0f);
         }

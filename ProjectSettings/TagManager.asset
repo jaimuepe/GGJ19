@@ -8,6 +8,8 @@ TagManager:
   - Door
   - DepthWall
   - DoorLight
+  - TopLight
+  - ExitDoor
   layers:
   - Default
   - TransparentFX

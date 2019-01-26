@@ -49,7 +49,7 @@ public class InteractionsManager : MonoBehaviour
         {
             Player.GetComponentInChildren<Animator>().SetBool("headbutt", true);
         }
-        else if (interactionId == "exit_door_00")
+        else if (interactionId == "exit_door_00" || interactionId == "exit_door_01")
         {
             ExitDoor exitDoor = obj.GetComponent<ExitDoor>();
             if (!exitDoor.usable)
@@ -61,12 +61,15 @@ public class InteractionsManager : MonoBehaviour
 
             Player.GetComponent<CharacterController2D>().WalkRightEndlessly = true;
 
-            GameObject depthWall = GameObject.FindGameObjectWithTag("DepthWall");
-            Transform depthWallTransform = depthWall.transform;
-            depthWallTransform.position = new Vector3(
-                depthWallTransform.position.x,
-                depthWallTransform.position.y,
-                -5.0f);
+            if (interactionId == "exit_door_00")
+            {
+                GameObject depthWall = GameObject.FindGameObjectWithTag("DepthWall");
+                Transform depthWallTransform = depthWall.transform;
+                depthWallTransform.position = new Vector3(
+                    depthWallTransform.position.x,
+                    depthWallTransform.position.y,
+                    -5.0f);
+            }
 
             LevelTransitionManager.Instance.LoadNextLevel();
         }
@@ -92,9 +95,20 @@ public class InteractionsManager : MonoBehaviour
         Player.GetComponent<CharacterController2D>().MovementEnabled = false;
         Player.GetComponent<CharacterInteractions>().InteractionsEnabled = false;
 
+        GameObject topLight = GameObject.FindGameObjectWithTag("TopLight");
+        topLight.SetActive(false);
+
         GameObject doorLight = GameObject.FindGameObjectWithTag("DoorLight");
 
-        doorLight.gameObject.SetActive(true);
+        doorLight.GetComponent<FMODUnity.StudioEventEmitter>().Play();
+
+        yield return new WaitForSeconds(2.4f);
+        doorLight.GetComponent<Animator>().SetBool("fadein", true);
+
+        Player.GetComponent<CharacterController2D>().MovementEnabled = true;
+        Player.GetComponent<CharacterInteractions>().InteractionsEnabled = true;
+
+        GameObject.FindGameObjectWithTag("ExitDoor").GetComponent<BoxCollider2D>().enabled = true;
 
         yield return null;
     }

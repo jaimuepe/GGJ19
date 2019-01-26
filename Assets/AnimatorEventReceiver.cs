@@ -31,4 +31,11 @@ public class AnimatorEventReceiver : MonoBehaviour
         characterController.MovementEnabled = true;
         characterInteractions.InteractionsEnabled = true;
     }
+
+    public FMODUnity.StudioEventEmitter wooshEmitter;
+
+    public void Wooshh()
+    {
+        wooshEmitter.Play();
+    }
 }

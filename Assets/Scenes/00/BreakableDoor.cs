@@ -57,14 +57,14 @@ public class BreakableDoor : MonoBehaviour
 
         if (hits == 1)
         {
-            // emitterHit.Play();
+            emitterHit.Play();
         }
 
         if (hits <= 0)
         {
             explosionParticleSystem.Play();
             exitDoor.gameObject.SetActive(true);
-            // exitDoor.PlayHitClip();
+            exitDoor.PlayHitClip();
             gameObject.SetActive(false);
         }
     }
