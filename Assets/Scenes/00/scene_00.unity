@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -689,6 +689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeDurationSeconds: 0.15
   magnitude: 0.2
+  usable: 1
   emitterHit: {fileID: 0}
 --- !u!61 &910752581
 BoxCollider2D:
@@ -1796,6 +1797,16 @@ PrefabInstance:
     - target: {fileID: 1863005398, guid: 74b7e8dbb5837fa4ea586e46c18b35a7, type: 3}
       propertyPath: m_Size.x
       value: 0.8283776
+      objectReference: {fileID: 0}
+    - target: {fileID: 4880864807546919691, guid: 74b7e8dbb5837fa4ea586e46c18b35a7,
+        type: 3}
+      propertyPath: Event
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4880864807546919693, guid: 74b7e8dbb5837fa4ea586e46c18b35a7,
+        type: 3}
+      propertyPath: Event
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74b7e8dbb5837fa4ea586e46c18b35a7, type: 3}

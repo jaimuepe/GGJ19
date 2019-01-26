@@ -38,6 +38,8 @@ public class RotatingWheel : MonoBehaviour
         for (int i = 0; i < rotatingWheels.Length; i++)
         {
             int angle = (int)rotatingWheels[i].transform.eulerAngles.z;
+            int targetAngle = (int)rotatingWheels[i].targetAngle;
+
             if (angle != targetAngle)
             {
                 rightSolution = false;
