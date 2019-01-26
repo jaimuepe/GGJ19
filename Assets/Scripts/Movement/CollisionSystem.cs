@@ -53,19 +53,25 @@ public class CollisionSystem : MonoBehaviour
 
     private void CalculateCornerOffsets()
     {
-        Vector2 extents = boxCollider.bounds.extents;
+        Vector2 extents = new Vector2(
+            mTransform.localScale.x * boxCollider.bounds.extents.x,
+            mTransform.localScale.y * boxCollider.bounds.extents.y);
+
+        Vector2 offset = new Vector2(
+            mTransform.localScale.x * boxCollider.offset.x,
+            mTransform.localScale.y * boxCollider.offset.y);
 
         TopLeftCornerOffset = new Vector2(
            -extents.x,
-           extents.y);
+           extents.y) + offset;
 
         BottomLeftCornerOffset = new Vector2(
            -extents.x,
-           -extents.y);
+           -extents.y) + offset;
 
         BottomRightCornerOffset = new Vector2(
            extents.x,
-           -extents.y);
+           -extents.y) + offset;
     }
 
     public Vector2 Calculate(Vector2 deltaMovement)

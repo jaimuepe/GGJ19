@@ -7,83 +7,62 @@ public class CharacterInteractions : MonoBehaviour
     private bool CanDoAction, carryingObject, canActionDoor;
     public Transform ObjectTakenPosition, ObjectThrowRight, ObjectThrowLeft;
     private GameObject objectToCarry, doorToOpen;
-    private enum FaceDirection { Right, Left };
-    private FaceDirection m_FaceDirection = FaceDirection.Right;
 
-    void Start()
+    private CharacterController2D characterController;
+    private Transform mTransform;
+
+    public BoxCollider2D interactionsCollider;
+
+    private GameObject interactableObject;
+    private LayerMask interactableLayer;
+
+    private void Start()
     {
+        characterController = GetComponent<CharacterController2D>();
+        mTransform = transform;
 
+        if (interactionsCollider == null)
+        {
+            interactionsCollider = GetComponent<BoxCollider2D>();
+        }
+
+        interactableLayer = LayerMask.GetMask("Interactable");
     }
 
     void Update()
     {
+        interactableObject = null;
+
         if (carryingObject)
         {
             objectToCarry.transform.position = ObjectTakenPosition.transform.position;
-        }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (carryingObject)
+            if (Input.GetKeyDown(KeyCode.R))
             {
-                ThrowObject(FaceDirection.Right);
+                ThrowObject();
             }
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        switch (other.tag)
+        else
         {
-            case "InteractableObject":
-                CanDoAction = true;
-                //Debug.Log("Character trigger activated: Enter");
-                break;
-            case "Door":
-                //doorToOpen = other.gameObject;
-                canActionDoor = true;
-                break;
-            default:
-                break;
-        }
-    }
+            Collider2D collider = Physics2D.OverlapBox(
+                mTransform.position,
+                mTransform.localScale * interactionsCollider.size,
+                0.0f,
+                interactableLayer);
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        switch (other.tag)
-        {
-            case "InteractableObject":
-                //Debug.Log("Character trigger activated: Stay");
-                if (Input.GetKeyDown(KeyCode.E) && CanDoAction)
-                {
-                    ProcessAction(other.gameObject);
-                }
-                break;
-            case "Door":
-                if (Input.GetKeyDown(KeyCode.E) && canActionDoor)
-                {
-                    OpenDoor(other.gameObject);
-                }
-                break;
-            default:
-                break;
+            if (collider)
+            {
+                interactableObject = collider.gameObject;
+            }
         }
-    }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        switch (other.tag)
+        if (interactableObject && Input.GetKeyDown(KeyCode.E))
         {
-            case "InteractableObject":
-                CanDoAction = false;
-                //Debug.Log("Character trigger activated: Enter");
-                break;
-            case "Door":
-                canActionDoor = false;
-                break;
-            default:
-                break;
+            InteractableObjectSprite interactable = interactableObject.GetComponent<InteractableObjectSprite>();
+            InteractionsManager.Instance.ResolveInteraction(interactable.id, interactableObject);
+            // ProcessAction(other.gameObject);
         }
+
     }
 
     private void ProcessAction(GameObject interactableObject)
@@ -93,9 +72,9 @@ public class CharacterInteractions : MonoBehaviour
         carryingObject = true;
     }
 
-    private void ThrowObject(FaceDirection direction)
+    private void ThrowObject()
     {
-        if (m_FaceDirection == FaceDirection.Right)
+        if (characterController.MovementDirection > 0)
         {
             objectToCarry.transform.position = ObjectThrowRight.position;
         }
@@ -103,6 +82,7 @@ public class CharacterInteractions : MonoBehaviour
         {
             objectToCarry.transform.position = ObjectThrowLeft.position;
         }
+
         carryingObject = false;
         objectToCarry = null;
     }
@@ -111,13 +91,13 @@ public class CharacterInteractions : MonoBehaviour
     {
         Vector3 initialDoorPosition = door.transform.position;
         door.transform.position += new Vector3(0, 3, 0);
-        StartCoroutine(CloseDoorAfterTime(initialDoorPosition,door));
+        StartCoroutine(CloseDoorAfterTime(initialDoorPosition, door));
     }
 
-    private IEnumerator CloseDoorAfterTime(Vector3 doorInitialPosition,GameObject door)
+    private IEnumerator CloseDoorAfterTime(Vector3 doorInitialPosition, GameObject door)
     {
         yield return new WaitForSeconds(2f);
-        door.transform.position = doorInitialPosition;     
+        door.transform.position = doorInitialPosition;
     }
 
     private void GetShorterDistanceObject()

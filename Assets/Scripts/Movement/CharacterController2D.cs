@@ -10,6 +10,8 @@ public class CharacterController2D : MonoBehaviour
 
     public float smoothSpeed;
 
+    public int MovementDirection { get; private set; }
+
     private Transform mTransform;
 
     [Header("Debug")]
@@ -84,6 +86,11 @@ public class CharacterController2D : MonoBehaviour
 
         movementSystem.UpdateCollisionData();
         jumpSystem.UpdateCollisionData();
+
+        if (deltaMovement.x != 0.0f)
+        {
+            MovementDirection = deltaMovement.x > 0.0f ? 1 : 0;
+        }
     }
 
     private void LateUpdate()

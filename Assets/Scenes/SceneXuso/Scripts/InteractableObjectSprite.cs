@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class InteractableObject : MonoBehaviour
+public class InteractableObjectSprite : MonoBehaviour
 {
 
     public string id;
@@ -17,10 +17,10 @@ public class InteractableObject : MonoBehaviour
 
     void Start()
     {
-        m_Material = GetComponent<MeshRenderer>().material;
+        m_Material = GetComponent<SpriteRenderer>().material;
         m_Animator = GetComponent<Animator>();
 
-        Assert.IsTrue(string.IsNullOrEmpty(id));
+        Assert.IsTrue(!string.IsNullOrEmpty(id), gameObject.name);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -34,7 +34,7 @@ public class InteractableObject : MonoBehaviour
                     StopCoroutine(interactAnimationCoroutine);
                 }
                 //interactAnimationCoroutine = StartCoroutine(InteractAnimation());
-                m_Animator.Play("InteractAnimation");
+                // m_Animator.Play("InteractAnimation");
                 break;
             default:
                 break;
@@ -52,7 +52,7 @@ public class InteractableObject : MonoBehaviour
                     StopCoroutine(interactAnimationCoroutine);
                 }
                 //interactAnimationCoroutine = StartCoroutine(InteractAnimation(true));
-                m_Animator.Play("InteractAnimation_R");
+                // m_Animator.Play("InteractAnimation_R");
                 break;
             default:
                 break;

@@ -15,6 +15,9 @@ public class BreakableDoor : MonoBehaviour
 
     SpriteRenderer sr;
 
+    [SerializeField]
+    ExitDoor exitDoor;
+
     int hits = 0;
     int maxHits = 2;
 
@@ -39,6 +42,10 @@ public class BreakableDoor : MonoBehaviour
     {
         hits--;
         UpdateSprite();
+        if (hits <= 0)
+        {
+            exitDoor.gameObject.SetActive(true);
+        }
     }
 
     private void UpdateSprite()
