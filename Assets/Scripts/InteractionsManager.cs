@@ -69,5 +69,17 @@ public class InteractionsManager : MonoBehaviour
             RotatingWheel rotatingWheel = obj.GetComponent<RotatingWheel>();
             rotatingWheel.Rotate();
         }
+        else if (interactionId == "wheel_puzzle_ok")
+        {
+            Player.GetComponent<CharacterController2D>().MovementEnabled = false;
+            Player.GetComponent<CharacterInteractions>().InteractionsEnabled = false;
+
+            StartCoroutine(WheelPuzzleActions());
+        }
+    }
+    
+    IEnumerator WheelPuzzleActions()
+    {
+        yield return null;
     }
 }

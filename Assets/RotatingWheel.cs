@@ -14,6 +14,8 @@ public class RotatingWheel : MonoBehaviour
 
     public WallRotatingFish rotatingFish;
 
+    private bool usable = true;
+
     private void Start()
     {
         rotatingWheels = FindObjectsOfType<RotatingWheel>();
@@ -21,6 +23,11 @@ public class RotatingWheel : MonoBehaviour
 
     public void Rotate()
     {
+        if (!usable)
+        {
+            return;
+        }
+
         transform.Rotate(new Vector3(0.0f, 0.0f, -rotationDegrees));
         rotatingFish.Rotate(rotationDegrees);
         CheckSolution();
@@ -39,6 +46,12 @@ public class RotatingWheel : MonoBehaviour
             }
         }
 
-        Debug.Log(rightSolution ? "OK" : "NO OK");
+        if (rightSolution)
+        {
+            for (int i = 0; i < rotatingWheels.Length; i++)
+            {
+                rotatingWheels[i].usable = false;
+            }
+        }
     }
 }

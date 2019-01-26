@@ -21,6 +21,9 @@ public class BreakableDoor : MonoBehaviour
     [SerializeField]
     float magnitude;
 
+    [SerializeField]
+    ParticleSystem explosionParticleSystem;
+
     Transform mTransform;
     int hits = 0;
     int maxHits = 2;
@@ -50,6 +53,7 @@ public class BreakableDoor : MonoBehaviour
         StartCoroutine(IEShake());
         if (hits <= 0)
         {
+            explosionParticleSystem.Play();
             exitDoor.gameObject.SetActive(true);
             exitDoor.Shake();
             gameObject.SetActive(false);
