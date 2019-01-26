@@ -10,6 +10,7 @@ public class CollisionSystem : MonoBehaviour
     private float SkinWidth { get { return cc.collisionParameters.skinWidth; } }
 
     private Vector2 mDeltaMovement;
+    [SerializeField]
     private BoxCollider2D boxCollider;
 
     public Vector2 TopLeftCornerOffset { get; private set; }
@@ -32,7 +33,12 @@ public class CollisionSystem : MonoBehaviour
     private void Awake()
     {
         cc = GetComponent<CharacterController2D>();
-        boxCollider = GetComponent<BoxCollider2D>();
+
+        if (!boxCollider)
+        {
+            boxCollider = GetComponent<BoxCollider2D>();
+        }
+
         if (!boxCollider)
         {
             boxCollider = gameObject.AddComponent<BoxCollider2D>();
