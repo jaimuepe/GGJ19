@@ -31,4 +31,9 @@ public class AnimatorEventReceiver : MonoBehaviour
         characterController.MovementEnabled = true;
         characterInteractions.InteractionsEnabled = true;
     }
+
+    public void PlayWalkingCloth()
+    {
+        GetComponent<FMODUnity.StudioEventEmitter>().Play();
+    }
 }
