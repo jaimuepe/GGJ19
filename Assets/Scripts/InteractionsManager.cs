@@ -66,8 +66,8 @@ public class InteractionsManager : MonoBehaviour
             interactionId == "wall_fish_01" ||
             interactionId == "wall_fish_02")
         {
-            WallRotatingFish wallFish = obj.GetComponent<WallRotatingFish>();
-            wallFish.Rotate();
+            RotatingWheel rotatingWheel = obj.GetComponent<RotatingWheel>();
+            rotatingWheel.Rotate();
         }
     }
 }
