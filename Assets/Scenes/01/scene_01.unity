@@ -122,8 +122,9 @@ GameObject:
   m_Component:
   - component: {fileID: 20539650}
   - component: {fileID: 20539649}
+  - component: {fileID: 20539651}
   m_Layer: 0
-  m_Name: escene2_00_0000_Capa-23
+  m_Name: top light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,6 +192,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &20539651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20539648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ab623c403e2674eb886051820da2ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minOnTime: 0.1
+  maxOnTime: 2
+  minOffTime: 0.2
+  maxOffTime: 0.3
+  minDelayTime: 0
+  maxDelayTime: 0
+  symbols:
+  - {fileID: 1544127830}
+  - {fileID: 541586610}
+  - {fileID: 1269247135}
 --- !u!1001 &32524605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -370,6 +393,8 @@ MonoBehaviour:
   id: 0
   rotationDegrees: 45
   rotatingFish: {fileID: 458969435}
+  targetAngle: 90
+  usable: 1
 --- !u!61 &119709751
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -725,13 +750,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263431765}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: -0, z: 0.9238796, w: -0.38268325}
   m_LocalPosition: {x: 2, y: -0.75, z: 10}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 225}
 --- !u!114 &263431768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,6 +772,8 @@ MonoBehaviour:
   id: 0
   rotationDegrees: 45
   rotatingFish: {fileID: 879206427}
+  targetAngle: 225
+  usable: 1
 --- !u!114 &263431769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1274,12 +1301,12 @@ GameObject:
   - component: {fileID: 541586612}
   - component: {fileID: 541586611}
   m_Layer: 0
-  m_Name: Cosas_0010_Capa-15 (1)
+  m_Name: Simbol_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &541586611
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1419,7 +1446,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180.868}
 --- !u!1001 &710920127
 PrefabInstance:
@@ -1567,7 +1594,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &815123284
 GameObject:
@@ -1725,14 +1752,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879206424}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: -0, z: 0.9238796, w: -0.38268325}
   m_LocalPosition: {x: 2, y: 1.81, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 446507293}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 225}
 --- !u!114 &879206427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2246,6 +2273,8 @@ MonoBehaviour:
   id: 0
   rotationDegrees: 45
   rotatingFish: {fileID: 475715040}
+  targetAngle: 0
+  usable: 1
 --- !u!114 &1268760288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2296,12 +2325,12 @@ GameObject:
   - component: {fileID: 1269247137}
   - component: {fileID: 1269247136}
   m_Layer: 0
-  m_Name: Cosas_0010_Capa-15 (2)
+  m_Name: Simbol_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1269247136
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2520,7 +2549,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1472649913
 GameObject:
@@ -2651,7 +2680,7 @@ PrefabInstance:
     - target: {fileID: 8910896364987778413, guid: e5be6530106fea9489f062547b92612c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 8910896364987778413, guid: e5be6530106fea9489f062547b92612c,
         type: 3}
@@ -2696,12 +2725,12 @@ GameObject:
   - component: {fileID: 1544127832}
   - component: {fileID: 1544127831}
   m_Layer: 0
-  m_Name: Cosas_0010_Capa-15
+  m_Name: Simbol_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1544127831
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2762,7 +2791,7 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1869310516
 GameObject:
