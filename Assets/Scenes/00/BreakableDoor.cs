@@ -18,11 +18,19 @@ public class BreakableDoor : MonoBehaviour
     [SerializeField]
     ExitDoor exitDoor;
 
+    [SerializeField]
+    float shakeDurationSeconds;
+
+    [SerializeField]
+    float magnitude;
+
+    Transform mTransform;
     int hits = 0;
     int maxHits = 2;
 
     private void Start()
     {
+        mTransform = transform;
         sr = GetComponent<SpriteRenderer>();
         hits = maxHits;
         UpdateSprite();
@@ -42,9 +50,12 @@ public class BreakableDoor : MonoBehaviour
     {
         hits--;
         UpdateSprite();
+        StartCoroutine(IEShake());
         if (hits <= 0)
         {
             exitDoor.gameObject.SetActive(true);
+            exitDoor.Shake();
+            gameObject.SetActive(false);
         }
     }
 
@@ -62,5 +73,21 @@ public class BreakableDoor : MonoBehaviour
         {
             sr.sprite = wreckedSprite;
         }
+    }
+
+    public IEnumerator IEShake()
+    {
+        Vector3 orignalPosition = mTransform.position;
+        float elapsed = 0f;
+
+        while (elapsed < shakeDurationSeconds)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+            mTransform.position = new Vector3(orignalPosition.x + x, orignalPosition.y + y, orignalPosition.z);
+            elapsed += Time.deltaTime;
+            yield return 0;
+        }
+        mTransform.position = orignalPosition;
     }
 }
