@@ -672,6 +672,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: breakable_door_00
+--- !u!1 &1933894965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850351734666549443, guid: 74b7e8dbb5837fa4ea586e46c18b35a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 4880864807546919688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1933894966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933894965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b121fc2a4feb684a902936dcef59177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2086159125
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,5 +972,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6850351734675909467, guid: 74b7e8dbb5837fa4ea586e46c18b35a7,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c2accc21c30deef4db81200c2e5aa7f2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74b7e8dbb5837fa4ea586e46c18b35a7, type: 3}
