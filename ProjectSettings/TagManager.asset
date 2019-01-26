@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InteractableObject
   - Door
+  - DepthWall
   layers:
   - Default
   - TransparentFX

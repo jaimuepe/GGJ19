@@ -23,6 +23,7 @@ public class InteractionsManager : MonoBehaviour
                 }
                 DontDestroyOnLoad(instance.gameObject);
             }
+
             return instance;
         }
     }
@@ -50,6 +51,15 @@ public class InteractionsManager : MonoBehaviour
         }
         else if (interactionId == "exit_door_00")
         {
+            Player.GetComponent<CharacterController2D>().WalkRightEndlessly = true;
+
+            GameObject depthWall = GameObject.FindGameObjectWithTag("DepthWall");
+            Transform depthWallTransform = depthWall.transform;
+            depthWallTransform.position = new Vector3(
+                depthWallTransform.position.x,
+                depthWallTransform.position.y,
+                -5.0f);
+
             LevelTransitionManager.Instance.LoadNextLevel();
         }
         else if (interactionId == "wall_fish_00" ||

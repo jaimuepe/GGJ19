@@ -39,6 +39,7 @@ public class LevelTransitionManager : MonoBehaviour
     IEnumerator AnimateCameraOut()
     {
 
+        yield return new WaitForSeconds(1.0f);
         Scene currentScene = SceneManager.GetActiveScene();
         yield return SceneManager.LoadSceneAsync(currentScene.buildIndex + 1, LoadSceneMode.Additive);
 
@@ -78,6 +79,7 @@ public class LevelTransitionManager : MonoBehaviour
 
         yield return SceneManager.UnloadSceneAsync(currentScene.buildIndex);
         DisplaceEverythingBack();
+       
     }
 
     private void DisplaceCamera()
@@ -112,10 +114,24 @@ public class LevelTransitionManager : MonoBehaviour
         for (int i = 0; i < scene.GetRootGameObjects().Length; i++)
         {
             Transform t = scene.GetRootGameObjects()[i].transform;
-            t.position = t.position + new Vector3(
+
+            if (t.gameObject.CompareTag("Player"))
+            {
+                t.position = t.position + new Vector3(
                 camWidth,
                 0.0f,
                 0.0f);
+
+                CharacterController2D cc = t.gameObject.GetComponent<CharacterController2D>();
+                cc.WalkRightEndlessly = true;
+            }
+            else
+            {
+                t.position = t.position + new Vector3(
+                    camWidth,
+                    0.0f,
+                    0.0f);
+            }
         }
     }
 
@@ -139,10 +155,20 @@ public class LevelTransitionManager : MonoBehaviour
         for (int i = 0; i < scene.GetRootGameObjects().Length; i++)
         {
             Transform t = scene.GetRootGameObjects()[i].transform;
-            t.position = t.position - new Vector3(
+            if (t.gameObject.CompareTag("Player"))
+            {
+                t.position = t.position - new Vector3(
                 camWidth,
                 0.0f,
                 0.0f);
+            }
+            else
+            {
+                t.position = t.position - new Vector3(
+                    camWidth,
+                    0.0f,
+                    0.0f);
+            }
         }
     }
 }

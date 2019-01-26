@@ -34,6 +34,8 @@ public class CharacterController2D : MonoBehaviour
 
     public bool MovementEnabled { get; set; } = true;
 
+    public bool WalkRightEndlessly { get; set; } = false;
+
     private void Awake()
     {
         mTransform = transform;
@@ -81,6 +83,17 @@ public class CharacterController2D : MonoBehaviour
 
     private void Update()
     {
+        if (WalkRightEndlessly)
+        {
+            deltaMovement = new Vector2(movementParameters.maxMovementSpeed * Time.deltaTime, 0.0f);
+            mAnimator.SetBool("walk", deltaMovement.x != 0.0f);
+            if (previousDirection != 1)
+            {
+                Rotate(1);
+            }
+            return;
+        }
+
         if (!MovementEnabled)
         {
             deltaMovement = Vector2.zero;
@@ -162,7 +175,7 @@ public class CharacterController2D : MonoBehaviour
 
     IEnumerator RotateRight()
     {
-        float rotation = - Mathf.Abs(mTransform.eulerAngles.y);
+        float rotation = -Mathf.Abs(mTransform.eulerAngles.y);
         while (rotation < 0.0f)
         {
             rotation += Time.deltaTime * turnSpeed;
