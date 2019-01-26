@@ -27,6 +27,13 @@ public class CharacterController2D : MonoBehaviour
     [NonSerialized]
     public StairsSystem stairsSystem;
 
+    [SerializeField]
+    float turnSpeed;
+
+    private Animator mAnimator;
+
+    public bool MovementEnabled { get; set; } = true;
+
     private void Awake()
     {
         mTransform = transform;
@@ -56,6 +63,11 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        mAnimator = GetComponentInChildren<Animator>();
+    }
+
     public void RequestHorizontal(float moveDirection)
     {
         // either -1, 0 or 1
@@ -69,6 +81,12 @@ public class CharacterController2D : MonoBehaviour
 
     private void Update()
     {
+        if (!MovementEnabled)
+        {
+            deltaMovement = Vector2.zero;
+            return;
+        }
+
         movementSystem.Calculate();
         jumpSystem.Calculate();
 
@@ -90,7 +108,68 @@ public class CharacterController2D : MonoBehaviour
         if (deltaMovement.x != 0.0f)
         {
             MovementDirection = deltaMovement.x > 0.0f ? 1 : 0;
+            int direction = (int)Mathf.Sign(deltaMovement.x);
+
+            if (previousDirection != direction)
+            {
+                Rotate(direction);
+            }
         }
+
+        mAnimator.SetBool("walk", deltaMovement.x != 0.0f);
+    }
+
+    int previousDirection = -100;
+
+    private void Rotate(int direction)
+    {
+        if (rotateLeftCoroutine != null)
+        {
+            StopCoroutine(rotateLeftCoroutine);
+        }
+
+        if (rotateRightCoroutine != null)
+        {
+            StopCoroutine(rotateRightCoroutine);
+        }
+
+        if (direction > 0)
+        {
+            rotateRightCoroutine = StartCoroutine(RotateRight());
+        }
+        else
+        {
+            rotateLeftCoroutine = StartCoroutine(RotateLeft());
+        }
+
+        previousDirection = direction;
+    }
+
+    Coroutine rotateLeftCoroutine;
+    Coroutine rotateRightCoroutine;
+
+    IEnumerator RotateLeft()
+    {
+        float rotation = mTransform.eulerAngles.y;
+        while (rotation > -180.0f)
+        {
+            rotation -= Time.deltaTime * turnSpeed;
+            mTransform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+            yield return null;
+        }
+        mTransform.rotation = Quaternion.Euler(0.0f, -180.0f, 0.0f);
+    }
+
+    IEnumerator RotateRight()
+    {
+        float rotation = - Mathf.Abs(mTransform.eulerAngles.y);
+        while (rotation < 0.0f)
+        {
+            rotation += Time.deltaTime * turnSpeed;
+            mTransform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+            yield return null;
+        }
+        mTransform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
     }
 
     private void LateUpdate()

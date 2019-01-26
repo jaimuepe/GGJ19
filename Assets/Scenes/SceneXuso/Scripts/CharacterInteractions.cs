@@ -16,6 +16,10 @@ public class CharacterInteractions : MonoBehaviour
     private GameObject interactableObject;
     private LayerMask interactableLayer;
 
+    Animator mAnimator;
+
+    public bool InteractionsEnabled { get; set; } = true;
+
     private void Start()
     {
         characterController = GetComponent<CharacterController2D>();
@@ -27,11 +31,20 @@ public class CharacterInteractions : MonoBehaviour
         }
 
         interactableLayer = LayerMask.GetMask("Interactable");
+
+        mAnimator = GetComponentInChildren<Animator>();
     }
 
     void Update()
     {
         interactableObject = null;
+
+        mAnimator.SetBool("headbutt", false);
+
+        if (!InteractionsEnabled)
+        {
+            return;
+        }
 
         if (carryingObject)
         {
@@ -62,7 +75,6 @@ public class CharacterInteractions : MonoBehaviour
             InteractionsManager.Instance.ResolveInteraction(interactable.id, interactableObject);
             // ProcessAction(other.gameObject);
         }
-
     }
 
     private void ProcessAction(GameObject interactableObject)

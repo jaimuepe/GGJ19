@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc0dbbbd304c314084e54c9eeea6ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeDurationSeconds: 0.1
+  shakeDurationSeconds: 0.15
   magnitude: 0.2
 --- !u!61 &910752581
 BoxCollider2D:
@@ -569,7 +569,7 @@ MonoBehaviour:
     type: 3}
   wreckedSprite: {fileID: 21300018, guid: 9362c10cb3a2a3a48ad543bde5fe26d3, type: 3}
   exitDoor: {fileID: 910752580}
-  shakeDurationSeconds: 0.1
+  shakeDurationSeconds: 0.15
   magnitude: 0.2
 --- !u!212 &1666368110
 SpriteRenderer:
