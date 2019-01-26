@@ -36,6 +36,9 @@ public class CharacterController2D : MonoBehaviour
 
     public bool WalkRightEndlessly { get; set; } = false;
 
+    public FMODUnity.StudioEventEmitter clothEmitter;
+    public FMODUnity.StudioEventEmitter squeakEmitter;
+
     private void Awake()
     {
         mTransform = transform;
@@ -68,6 +71,7 @@ public class CharacterController2D : MonoBehaviour
     private void Start()
     {
         mAnimator = GetComponentInChildren<Animator>();
+        StartCoroutine(Squeak());
     }
 
     public void RequestHorizontal(float moveDirection)
@@ -86,40 +90,35 @@ public class CharacterController2D : MonoBehaviour
         if (WalkRightEndlessly)
         {
             deltaMovement = new Vector2(movementParameters.maxMovementSpeed * Time.deltaTime, 0.0f);
-            mAnimator.SetBool("walk", deltaMovement.x != 0.0f);
-            if (previousDirection != 1)
-            {
-                Rotate(1);
-            }
-            return;
         }
-
-        if (!MovementEnabled)
+        else if (!MovementEnabled)
         {
             deltaMovement = Vector2.zero;
-            return;
         }
-
-        movementSystem.Calculate();
-        jumpSystem.Calculate();
-
-        Vector2 mTotalVelocity = new Vector2(
-            movementSystem.AccumulatedVelocity,
-            jumpSystem.AccumulatedVelocity.y);
-
-        deltaMovement = mTotalVelocity * Time.deltaTime;
-
-        stairsSystem.Calculate(ref deltaMovement);
-        if (collisionSystem.enabled)
+        else
         {
-            deltaMovement = collisionSystem.Calculate(deltaMovement);
-        }
+            movementSystem.Calculate();
+            jumpSystem.Calculate();
 
-        movementSystem.UpdateCollisionData();
-        jumpSystem.UpdateCollisionData();
+            Vector2 mTotalVelocity = new Vector2(
+                movementSystem.AccumulatedVelocity,
+                jumpSystem.AccumulatedVelocity.y);
+
+            deltaMovement = mTotalVelocity * Time.deltaTime;
+
+            stairsSystem.Calculate(ref deltaMovement);
+            if (collisionSystem.enabled)
+            {
+                deltaMovement = collisionSystem.Calculate(deltaMovement);
+            }
+
+            movementSystem.UpdateCollisionData();
+            jumpSystem.UpdateCollisionData();
+        }
 
         if (deltaMovement.x != 0.0f)
         {
+            clothEmitter.SetParameter("active", 0.0f);
             MovementDirection = deltaMovement.x > 0.0f ? 1 : 0;
             int direction = (int)Mathf.Sign(deltaMovement.x);
 
@@ -128,11 +127,15 @@ public class CharacterController2D : MonoBehaviour
                 Rotate(direction);
             }
         }
+        else
+        {
+            clothEmitter.SetParameter("active", 0.0f);
+        }
 
         mAnimator.SetBool("walk", deltaMovement.x != 0.0f);
     }
 
-    int previousDirection = -100;
+    int previousDirection = 1;
 
     private void Rotate(int direction)
     {
@@ -160,6 +163,18 @@ public class CharacterController2D : MonoBehaviour
 
     Coroutine rotateLeftCoroutine;
     Coroutine rotateRightCoroutine;
+
+    IEnumerator Squeak()
+    {
+        while (true)
+        {
+            if (deltaMovement.x != 0.0f)
+            {
+                squeakEmitter.Play();
+            }
+            yield return new WaitForSeconds(1.0f);
+        }
+    }
 
     IEnumerator RotateLeft()
     {

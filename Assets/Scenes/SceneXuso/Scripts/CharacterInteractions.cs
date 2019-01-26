@@ -57,9 +57,14 @@ public class CharacterInteractions : MonoBehaviour
         }
         else
         {
+            bool positive = interactionsCollider.transform.eulerAngles.y < 90.0f;
+            
             Collider2D collider = Physics2D.OverlapBox(
-                mTransform.position,
-                mTransform.localScale * interactionsCollider.size,
+                interactionsCollider.transform.position + new Vector3(
+                    interactionsCollider.offset.x * (positive ? 1 : -1),
+                    interactionsCollider.offset.y,
+                    0.0f),
+                interactionsCollider.size,
                 0.0f,
                 interactableLayer);
 
