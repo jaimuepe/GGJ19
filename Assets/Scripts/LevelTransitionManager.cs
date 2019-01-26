@@ -36,39 +36,14 @@ public class LevelTransitionManager : MonoBehaviour
         StartCoroutine(AnimateCameraOut());
     }
 
-    float animationTime;
-
-    IEnumerator AnimateCameraIn()
-    {
-
-        Camera mainCamera = Camera.main;
-
-        float screenAspect = (float)Screen.width / (float)Screen.height;
-        float camHalfHeight = mainCamera.orthographicSize;
-        float camHalfWidth = screenAspect * camHalfHeight;
-        float camWidth = 2.0f * camHalfWidth;
-
-        Transform mainCameraTransform = mainCamera.transform;
-
-        while (mainCameraTransform.position.x < 0.0f)
-        {
-            mainCameraTransform.position = Vector3.Lerp(
-                mainCameraTransform.position,
-                new Vector3(
-                    mainCameraTransform.position.x
-                        + cameraSpeed * cameraSpeedCurve.Evaluate(animationTime) * Time.deltaTime,
-                    mainCameraTransform.position.y,
-                    mainCameraTransform.position.z
-                ), 35.0f * Time.deltaTime);
-
-            animationTime = Mathf.Max(animationTime - Time.deltaTime, 0.0f);
-            yield return null;
-        }
-    }
-
     IEnumerator AnimateCameraOut()
     {
 
+        Scene currentScene = SceneManager.GetActiveScene();
+        yield return SceneManager.LoadSceneAsync(currentScene.buildIndex + 1, LoadSceneMode.Additive);
+
+        DisplaceObjects(currentScene.buildIndex + 1);
+
         Camera mainCamera = Camera.main;
 
         float screenAspect = (float)Screen.width / (float)Screen.height;
@@ -78,9 +53,9 @@ public class LevelTransitionManager : MonoBehaviour
 
         Transform mainCameraTransform = mainCamera.transform;
 
-        animationTime = 0.0f;
+        float animationTime = 0.0f;
 
-        while (mainCameraTransform.position.x < camWidth + camHalfWidth * 0.5f)
+        while (mainCameraTransform.position.x < camWidth)
         {
             mainCameraTransform.position = Vector3.Lerp(
                 mainCameraTransform.position,
@@ -96,18 +71,13 @@ public class LevelTransitionManager : MonoBehaviour
         }
 
         mainCameraTransform.position = new Vector3(
-                camWidth + camHalfWidth * 0.5f,
+                camWidth,
                 mainCameraTransform.position.y,
                 mainCameraTransform.position.z
                 );
 
-        Scene currentScene = SceneManager.GetActiveScene();
-
-        DisplaceCamera();
         yield return SceneManager.UnloadSceneAsync(currentScene.buildIndex);
-        yield return SceneManager.LoadSceneAsync(currentScene.buildIndex + 1);
-
-        StartCoroutine(AnimateCameraIn());
+        DisplaceEverythingBack();
     }
 
     private void DisplaceCamera()
@@ -126,5 +96,53 @@ public class LevelTransitionManager : MonoBehaviour
         mainCameraTransform.position.y,
         mainCameraTransform.position.z
         );
+    }
+
+    private void DisplaceObjects(int sceneIndex)
+    {
+        Scene scene = SceneManager.GetSceneByBuildIndex(sceneIndex);
+        Camera mainCamera = Camera.main;
+        Transform mainCameraTransform = mainCamera.transform;
+
+        float screenAspect = (float)Screen.width / (float)Screen.height;
+        float camHalfHeight = mainCamera.orthographicSize;
+        float camHalfWidth = screenAspect * camHalfHeight;
+        float camWidth = 2.0f * camHalfWidth;
+
+        for (int i = 0; i < scene.GetRootGameObjects().Length; i++)
+        {
+            Transform t = scene.GetRootGameObjects()[i].transform;
+            t.position = t.position + new Vector3(
+                camWidth,
+                0.0f,
+                0.0f);
+        }
+    }
+
+    private void DisplaceEverythingBack()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        Camera mainCamera = Camera.main;
+        Transform mainCameraTransform = mainCamera.transform;
+
+        float screenAspect = (float)Screen.width / (float)Screen.height;
+        float camHalfHeight = mainCamera.orthographicSize;
+        float camHalfWidth = screenAspect * camHalfHeight;
+        float camWidth = 2.0f * camHalfWidth;
+
+        mainCameraTransform.position = new Vector3(
+            0.0f,
+            mainCameraTransform.position.y,
+            mainCameraTransform.position.z
+            );
+
+        for (int i = 0; i < scene.GetRootGameObjects().Length; i++)
+        {
+            Transform t = scene.GetRootGameObjects()[i].transform;
+            t.position = t.position - new Vector3(
+                camWidth,
+                0.0f,
+                0.0f);
+        }
     }
 }
