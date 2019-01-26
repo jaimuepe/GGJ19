@@ -36,13 +36,7 @@ public class InputController : MonoBehaviour
         {
             HorizontalInput = Input.GetAxisRaw("HorizontalXbox360");
             VerticalInput = Input.GetAxisRaw("Vertical");
-        }
-
-        if (Input.GetButtonDown("ActionButtonXbox360"))
-        {
-            Debug.Log("Action Button pushed");
-        }
-        
+        }   
     }
 
     private void ProcessInput()

@@ -5,14 +5,13 @@ using UnityEngine;
 public class RotatingWheel : MonoBehaviour
 {
 
-    private static int TARGET_ANGLE = 0;
-
     RotatingWheel[] rotatingWheels;
 
     public int id;
     public float rotationDegrees = 45;
 
     public WallRotatingFish rotatingFish;
+    public float targetAngle;
 
     public bool usable = true;
 
@@ -39,7 +38,9 @@ public class RotatingWheel : MonoBehaviour
         for (int i = 0; i < rotatingWheels.Length; i++)
         {
             int angle = (int)rotatingWheels[i].transform.eulerAngles.z;
-            if (angle != TARGET_ANGLE)
+            int targetAngle = (int)rotatingWheels[i].targetAngle;
+
+            if (angle != targetAngle)
             {
                 rightSolution = false;
                 break;
