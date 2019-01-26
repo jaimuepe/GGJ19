@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scenes/SceneXuso/Animators.meta
 guid: 82e99b72939e2e94c8f89cbd645f6a2a
+=======
+guid: b55850acdc9266242bd7447d9cdedee8
+>>>>>>> 29fdbe61c108f3e2d35671752b6ba097acae4b6f:Assets/FMOD Global.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

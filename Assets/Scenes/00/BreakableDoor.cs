@@ -21,9 +21,14 @@ public class BreakableDoor : MonoBehaviour
     [SerializeField]
     float magnitude;
 
+    [SerializeField]
+    ParticleSystem explosionParticleSystem;
+
     Transform mTransform;
     int hits = 0;
     int maxHits = 2;
+
+    public FMODUnity.StudioEventEmitter emitterHit;
 
     private void Start()
     {
@@ -49,10 +54,17 @@ public class BreakableDoor : MonoBehaviour
         hits--;
         UpdateSprite();
         StartCoroutine(IEShake());
+
+        if (hits == 1)
+        {
+            // emitterHit.Play();
+        }
+
         if (hits <= 0)
         {
+            explosionParticleSystem.Play();
             exitDoor.gameObject.SetActive(true);
-            exitDoor.Shake();
+            // exitDoor.PlayHitClip();
             gameObject.SetActive(false);
         }
     }

@@ -23,6 +23,7 @@ public class InteractionsManager : MonoBehaviour
                 }
                 DontDestroyOnLoad(instance.gameObject);
             }
+
             return instance;
         }
     }
@@ -50,14 +51,51 @@ public class InteractionsManager : MonoBehaviour
         }
         else if (interactionId == "exit_door_00")
         {
+            ExitDoor exitDoor = obj.GetComponent<ExitDoor>();
+            if (!exitDoor.usable)
+            {
+                return;
+            }
+
+            exitDoor.usable = false;
+
+            Player.GetComponent<CharacterController2D>().WalkRightEndlessly = true;
+
+            GameObject depthWall = GameObject.FindGameObjectWithTag("DepthWall");
+            Transform depthWallTransform = depthWall.transform;
+            depthWallTransform.position = new Vector3(
+                depthWallTransform.position.x,
+                depthWallTransform.position.y,
+                -5.0f);
+
             LevelTransitionManager.Instance.LoadNextLevel();
         }
         else if (interactionId == "wall_fish_00" ||
             interactionId == "wall_fish_01" ||
             interactionId == "wall_fish_02")
         {
-            WallRotatingFish wallFish = obj.GetComponent<WallRotatingFish>();
-            wallFish.Rotate();
+            RotatingWheel rotatingWheel = obj.GetComponent<RotatingWheel>();
+            if (!rotatingWheel.usable)
+            {
+                return;
+            }
+            rotatingWheel.Rotate();
         }
+        else if (interactionId == "wheel_puzzle_ok")
+        {
+            StartCoroutine(WheelPuzzleActions());
+        }
+    }
+
+    IEnumerator WheelPuzzleActions()
+    {
+        Player.GetComponent<CharacterController2D>().MovementEnabled = false;
+        Player.GetComponent<CharacterInteractions>().InteractionsEnabled = false;
+
+        GameObject doorLight = GameObject.FindGameObjectWithTag("DoorLight");
+
+        doorLight.gameObject.SetActive(true);
+
+        yield return null;
     }
 }
