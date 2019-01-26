@@ -27,14 +27,26 @@ public class InteractionsManager : MonoBehaviour
         }
     }
 
+    GameObject player;
+    GameObject Player
+    {
+        get
+        {
+            if (player == null)
+            {
+                player = GameObject.FindGameObjectWithTag("Player");
+            }
+            return player;
+        }
+    }
+
     public void ResolveInteraction(string interactionId, GameObject obj)
     {
         Debug.Log("Resolving interaction: " + interactionId);
 
         if (interactionId == "breakable_door_00")
         {
-            BreakableDoor bDoor = obj.GetComponent<BreakableDoor>();
-            bDoor.HeadButt();
+            Player.GetComponentInChildren<Animator>().SetBool("headbutt", true);
         }
         else if (interactionId == "exit_door_00")
         {
