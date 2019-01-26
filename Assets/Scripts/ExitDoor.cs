@@ -15,6 +15,8 @@ public class ExitDoor : MonoBehaviour
 
     Transform mTransform;
 
+    bool usable = true;
+
     private void OnEnable()
     {
         mTransform = transform;
@@ -23,6 +25,11 @@ public class ExitDoor : MonoBehaviour
 #if UNITY_EDITOR
     private void Update()
     {
+        if (!usable)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.W))
         {
             ExitRoom();
@@ -32,12 +39,15 @@ public class ExitDoor : MonoBehaviour
 
     public void ExitRoom()
     {
+        usable = false;
         LevelTransitionManager.Instance.LoadNextLevel();
     }
 
-    public void Shake()
+    public FMODUnity.StudioEventEmitter emitterHit;
+
+    public void PlayHitClip()
     {
-        StartCoroutine(IEShake());
+        emitterHit.Play();
     }
 
     IEnumerator IEShake()

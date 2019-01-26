@@ -13,15 +13,19 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114958617779444154}
-  - {fileID: 114383069967462018}
+  - {fileID: 114322681097646828}
+  - {fileID: 114235083267546280}
   EditorEvents:
-  - {fileID: 114041501885475062}
+  - {fileID: 114534713335953786}
+  - {fileID: 114395272568239014}
+  - {fileID: 114734417031306188}
+  - {fileID: 114897849700944464}
+  - {fileID: 114689876866891330}
   MasterBanks:
-  - {fileID: 114383069967462018}
+  - {fileID: 114235083267546280}
   StringsBanks:
-  - {fileID: 114958617779444154}
-  stringsBankWriteTime: 636841213415288561
+  - {fileID: 114322681097646828}
+  stringsBankWriteTime: 636841316480000000
   cacheVersion: 3
 --- !u!114 &114013009058259756
 MonoBehaviour:
@@ -105,29 +109,6 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 11967
---- !u!114 &114041501885475062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/WalkingCloth
-  guid: 833d7c81b8bfd74eb17a66a3a9cee1d1
-  Banks:
-  - {fileID: 114383069967462018}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 5000
 --- !u!114 &114049744136847836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,29 +141,6 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
---- !u!114 &114065713862658376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Hud/Click_
-  guid: b00741c47f757942adbafd5e0a47478c
-  Banks:
-  - {fileID: 114727049549089044}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 5000
 --- !u!114 &114089176657522850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,61 +173,6 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
---- !u!114 &114107967709051432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Health
-  Min: 0
-  Max: 100
-  Default: 100
---- !u!114 &114115192301866578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: visible
-  Min: 0.5
-  Max: 1
-  Default: 0.5
---- !u!114 &114139023098823746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Hud/Over_
-  guid: 096420966a308d4099413625c92a1c15
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 4100
 --- !u!114 &114143851831814568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: /Users/dan/Desktop/GlobalGameJam_2019/Fmod_Global2/Build/Desktop/Master Bank.bank
-  lastModified: 636841056250000000
+  lastModified: 636841196070000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -302,61 +205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Paused
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114158668816656010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Paused
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114163499865015514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Enemy/Hellephant Step_
-  guid: 073948683b7a8747bda578edc9cf9fae
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 4000
---- !u!114 &114173682981335550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: GameOver
   Min: 0
   Max: 1
   Default: 0
@@ -415,29 +263,6 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
---- !u!114 &114207959066802486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Baby/Player GunShot_
-  guid: 0728966c66c8f04683fde76dfbc5c8e5
-  Banks:
-  - {fileID: 114727049549089044}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 1514
 --- !u!114 &114209955099851724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,6 +286,25 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 6500
+--- !u!114 &114212538042876474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: /Users/dan/Desktop/GlobalGameJam_2019/Fmod_Global2/Build/Desktop/Master Bank.bank
+  lastModified: 636841309740000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 72608
+  Exists: 1
 --- !u!114 &114214106727565596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,39 +337,7 @@ MonoBehaviour:
   Min: 0
   Max: 100
   Default: 100
---- !u!114 &114221419106069846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Paused
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114227800779539124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: HealthMusic
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114243815779051636
+--- !u!114 &114230208654620522
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -537,17 +349,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/FX_/Baby/Step_
-  guid: 9454bc769ffdb84eb9820fe334ba6bba
+  Path: event:/Door2
+  guid: 388ab19de7d70442bdcbdab1b0d501dc
   Banks:
-  - {fileID: 114727049549089044}
+  - {fileID: 114212538042876474}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 1000
+  Length: 1450
+--- !u!114 &114235083267546280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: /Users/dan/Desktop/GlobalGameJam_2019/Fmod_Global2/Build/Desktop/Master Bank.bank
+  lastModified: 636841316480000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 125856
+  Exists: 1
 --- !u!114 &114243876988832230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,29 +414,6 @@ MonoBehaviour:
   Min: 0.5
   Max: 1
   Default: 0.5
---- !u!114 &114250872179155316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Enemy/ZomBunnyHurt_
-  guid: 49cf558ff2c9d44292125d4368ae9665
-  Banks:
-  - {fileID: 114727049549089044}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 3000
 --- !u!114 &114254711587427414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,29 +472,6 @@ MonoBehaviour:
   - Name: 
     Value: 1818
   Exists: 1
---- !u!114 &114273509312661078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Enemy/Hellephant Step_
-  guid: 073948683b7a8747bda578edc9cf9fae
-  Banks:
-  - {fileID: 114727049549089044}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 4000
 --- !u!114 &114279351574303578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,7 +567,7 @@ MonoBehaviour:
   Min: 0.5
   Max: 1
   Default: 0.5
---- !u!114 &114297302891065164
+--- !u!114 &114322681097646828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -791,20 +576,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/FX_/Baby/Player GunShot_
-  guid: 0728966c66c8f04683fde76dfbc5c8e5
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 1514
+  Path: /Users/dan/Desktop/GlobalGameJam_2019/Fmod_Global2/Build/Desktop/Master Bank.strings.bank
+  lastModified: 636841316480000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 868
+  Exists: 1
 --- !u!114 &114328463145046818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,29 +609,6 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 7000
---- !u!114 &114332046058365936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Enemy/ZomBunny Death_
-  guid: b0083adc6866734b97e251391b6ecd86
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &114354184747146072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -867,81 +625,6 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
---- !u!114 &114358278400840882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Background Music
-  guid: 4a5a44ae3259c74da5fa30da572f14c4
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 114227800779539124}
-  - {fileID: 114649702673641328}
-  - {fileID: 114488831619916826}
-  - {fileID: 114588744117375182}
-  - {fileID: 114158668816656010}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 81500
---- !u!114 &114358804803432942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Baby/Player Death_
-  guid: 9d5b8a852826c849ac6b857d4fc618bc
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 7000
---- !u!114 &114359386865761828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Baby/Heart_
-  guid: 30e3fbd627b6c846a4767fb617124b8f
-  Banks:
-  - {fileID: 114727049549089044}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 114107967709051432}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 1160
 --- !u!114 &114359743624029402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -965,31 +648,6 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
---- !u!114 &114362857780475348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: 
-  guid: ccb4768fbd5b5943befaed381e7e1ecf
-  Banks:
-  - {fileID: 114902308531058952}
-  - {fileID: 114902308531058952}
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 11967
 --- !u!114 &114381033031295616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,7 +664,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
---- !u!114 &114383069967462018
+--- !u!114 &114395272568239014
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1015,16 +673,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: C:\Users\jmuelape\Documents\Fmod_Global2\Build\Desktop\Master Bank.bank
-  lastModified: 636841213416687805
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 21984
-  Exists: 1
+  Path: event:/Walking/WalkingCloth
+  guid: 833d7c81b8bfd74eb17a66a3a9cee1d1
+  Banks:
+  - {fileID: 114235083267546280}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5000
 --- !u!114 &114397706750163620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1243,29 +905,6 @@ MonoBehaviour:
   Min: 0
   Max: 100
   Default: 100
---- !u!114 &114466057215631292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Impact/Impact_metal_
-  guid: c16566966d94de449e8e72e81e3d858a
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 823
 --- !u!114 &114469181036155716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1282,29 +921,6 @@ MonoBehaviour:
   Min: 0
   Max: 100
   Default: 100
---- !u!114 &114471109421676944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Baby/Step_
-  guid: 9454bc769ffdb84eb9820fe334ba6bba
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 1000
 --- !u!114 &114478251928896066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1321,29 +937,6 @@ MonoBehaviour:
   Min: 0.5
   Max: 1
   Default: 0.5
---- !u!114 &114478718462180366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Enemy/ZomBunnyHurt_
-  guid: 49cf558ff2c9d44292125d4368ae9665
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 3000
 --- !u!114 &114485855946857680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,22 +960,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1500
---- !u!114 &114488831619916826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: visible
-  Min: 0.5
-  Max: 1
-  Default: 0.5
 --- !u!114 &114489092447583324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,7 +976,7 @@ MonoBehaviour:
   Min: 0
   Max: 100
   Default: 100
---- !u!114 &114489414880671202
+--- !u!114 &114489803933535374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1408,20 +985,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/Music/Cellos_loop
-  guid: b581b3aeec8caa4a869defd97d9ba0a8
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 2000
+  Path: /Users/dan/Desktop/GlobalGameJam_2019/Fmod_Global2/Build/Desktop/Master Bank.strings.bank
+  lastModified: 636841309740000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 836
+  Exists: 1
 --- !u!114 &114495468263745168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1458,22 +1031,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HealthMusic
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114501968362916274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: GameStarted
   Min: 0
   Max: 1
   Default: 0
@@ -1565,52 +1122,6 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1818
   Exists: 1
---- !u!114 &114519624438105858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Hud/Click_
-  guid: b00741c47f757942adbafd5e0a47478c
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 5000
---- !u!114 &114525552606732240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Baby/Player_Hurt_
-  guid: 7a709e35bedeb049b4d1637a027ca7ba
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 2500
 --- !u!114 &114529842607006540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1634,6 +1145,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2500
+--- !u!114 &114534713335953786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Door2
+  guid: 388ab19de7d70442bdcbdab1b0d501dc
+  Banks:
+  - {fileID: 114235083267546280}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1450
 --- !u!114 &114540637180332908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1657,7 +1191,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 5000
---- !u!114 &114549987766446258
+--- !u!114 &114540710435088482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1669,17 +1203,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/FX_/Enemy/Hellephant Hurt_
-  guid: c666981ecfc0c2478da777fbbe9c9853
-  Banks:
-  - {fileID: 114727049549089044}
+  Path: event:/WalkingCloth
+  guid: 833d7c81b8bfd74eb17a66a3a9cee1d1
+  Banks: []
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2100
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5000
 --- !u!114 &114559267937843392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1696,29 +1229,6 @@ MonoBehaviour:
   guid: 49cf558ff2c9d44292125d4368ae9665
   Banks:
   - {fileID: 114904393511889122}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 3000
---- !u!114 &114566481057627488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Enemy/ZomBearHurt_
-  guid: d4e85fcbcc75164892aa152f4ddd3273
-  Banks:
-  - {fileID: 114902308531058952}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1788,25 +1298,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3000
---- !u!114 &114586258353071944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\jmuelape\Documents\Fmod_Global\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636840997760000000
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 1754
-  Exists: 1
 --- !u!114 &114588268421867360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1830,22 +1321,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3000
---- !u!114 &114588744117375182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: GameStarted
-  Min: 0
-  Max: 1
-  Default: 0
 --- !u!114 &114593582306004236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1862,6 +1337,29 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114623234217745860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Walking/WalkingCloth
+  guid: 833d7c81b8bfd74eb17a66a3a9cee1d1
+  Banks:
+  - {fileID: 114212538042876474}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5000
 --- !u!114 &114636750856413230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1885,22 +1383,6 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
---- !u!114 &114649702673641328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: GameOver
-  Min: 0
-  Max: 1
-  Default: 0
 --- !u!114 &114656629086279096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1947,29 +1429,6 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 5000
---- !u!114 &114659430623974470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Impact/Impact_wood_
-  guid: 736e01a7e3fb32428b9c1f85378bcc00
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1500
 --- !u!114 &114681185085781596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1993,6 +1452,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4100
+--- !u!114 &114689876866891330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Door3
+  guid: ee5574a7eed9864fa5be3c3bec0ef046
+  Banks:
+  - {fileID: 114235083267546280}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5000
 --- !u!114 &114692957486439634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2032,26 +1514,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2500
---- !u!114 &114727049549089044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\jmuelape\Documents\Fmod_Global\Build\Desktop\Master Bank.bank
-  lastModified: 636840997760000000
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 5951136
-  Exists: 1
---- !u!114 &114752641065927002
+--- !u!114 &114734417031306188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2063,17 +1526,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/FX_/Baby/Player_Hurt_
-  guid: 7a709e35bedeb049b4d1637a027ca7ba
+  Path: event:/Woosh
+  guid: 9562d341a46c8e4890824b72054aee91
   Banks:
-  - {fileID: 114727049549089044}
+  - {fileID: 114235083267546280}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 2500
+  Length: 1500
 --- !u!114 &114754753107012376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2087,35 +1550,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: /Users/dan/Desktop/GlobalGameJam_2019/Fmod_Global2/Build/Desktop/Master Bank.strings.bank
-  lastModified: 636841056250000000
+  lastModified: 636841196070000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 688
   Exists: 1
---- !u!114 &114766429817528302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Enemy/ZomBearHurt_
-  guid: d4e85fcbcc75164892aa152f4ddd3273
-  Banks:
-  - {fileID: 114727049549089044}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 3000
 --- !u!114 &114772461544161620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2148,45 +1588,6 @@ MonoBehaviour:
   Min: 0.5
   Max: 1
   Default: 0.5
---- !u!114 &114783548484670918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Enemy/ZomBunny Death_
-  guid: b0083adc6866734b97e251391b6ecd86
-  Banks:
-  - {fileID: 114727049549089044}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &114784577196776820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Health
-  Min: 0
-  Max: 100
-  Default: 100
 --- !u!114 &114800690583652168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2249,55 +1650,6 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 6500
---- !u!114 &114836406414332006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Baby/Heart_
-  guid: 30e3fbd627b6c846a4767fb617124b8f
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 114784577196776820}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 1160
---- !u!114 &114839434225250042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: 
-  guid: ccb4768fbd5b5943befaed381e7e1ecf
-  Banks:
-  - {fileID: 114727049549089044}
-  - {fileID: 114727049549089044}
-  - {fileID: 114727049549089044}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 11967
 --- !u!114 &114841690425614930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2314,7 +1666,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
---- !u!114 &114847652640575366
+--- !u!114 &114863357892627496
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2326,17 +1678,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/FX_/Hud/Over_
-  guid: 096420966a308d4099413625c92a1c15
+  Path: event:/Door1
+  guid: cc446472f3eff34da8d9753929f6a2d4
   Banks:
-  - {fileID: 114727049549089044}
+  - {fileID: 114212538042876474}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 4100
+  Length: 1323
 --- !u!114 &114894165405898080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2353,7 +1705,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
---- !u!114 &114895644725846046
+--- !u!114 &114897849700944464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2365,36 +1717,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/FX_/Impact/Impact_metal_
-  guid: c16566966d94de449e8e72e81e3d858a
+  Path: event:/Door1
+  guid: cc446472f3eff34da8d9753929f6a2d4
   Banks:
-  - {fileID: 114727049549089044}
+  - {fileID: 114235083267546280}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 823
---- !u!114 &114902308531058952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\jmuelape\Documents\Fmod_Global\Build\Desktop\Master Bank.bank
-  lastModified: 636840997760000000
-  LoadResult: 0
-  FileSizes:
-  - Name: 
-    Value: 5951136
-  Exists: 1
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1323
 --- !u!114 &114904393511889122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2414,73 +1747,6 @@ MonoBehaviour:
   - Name: Desktop
     Value: 5960704
   Exists: 1
---- !u!114 &114914120072530712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: HealthMusic
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114917447459981820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Background Music
-  guid: 4a5a44ae3259c74da5fa30da572f14c4
-  Banks:
-  - {fileID: 114727049549089044}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 114914120072530712}
-  - {fileID: 114173682981335550}
-  - {fileID: 114115192301866578}
-  - {fileID: 114501968362916274}
-  - {fileID: 114221419106069846}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 81500
---- !u!114 &114918023880827762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Cellos_loop
-  guid: b581b3aeec8caa4a869defd97d9ba0a8
-  Banks:
-  - {fileID: 114727049549089044}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 2000
 --- !u!114 &114919555639370880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2504,29 +1770,6 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1514
---- !u!114 &114923255742983464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Enemy/Hellephant Hurt_
-  guid: c666981ecfc0c2478da777fbbe9c9853
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2100
 --- !u!114 &114925670155961912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2575,52 +1818,6 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
---- !u!114 &114936022281193742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Hud/Score_
-  guid: 0f34f780d1499745ba59053098cb53cb
-  Banks:
-  - {fileID: 114727049549089044}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 6500
---- !u!114 &114937988358808546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Hud/Score_
-  guid: 0f34f780d1499745ba59053098cb53cb
-  Banks:
-  - {fileID: 114902308531058952}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 6500
 --- !u!114 &114944882023541154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2637,25 +1834,6 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
---- !u!114 &114950169878960326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\jmuelape\Documents\Fmod_Global\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636840997760000000
-  LoadResult: 0
-  FileSizes:
-  - Name: 
-    Value: 1754
-  Exists: 1
 --- !u!114 &114954066209879640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2672,25 +1850,6 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
---- !u!114 &114958617779444154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\jmuelape\Documents\Fmod_Global2\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636841213415288561
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 688
-  Exists: 1
 --- !u!114 &114959874952324328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2714,52 +1873,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &114977198649350476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Baby/Player Death_
-  guid: 9d5b8a852826c849ac6b857d4fc618bc
-  Banks:
-  - {fileID: 114727049549089044}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 7000
---- !u!114 &114986468604429228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/FX_/Impact/Impact_wood_
-  guid: 736e01a7e3fb32428b9c1f85378bcc00
-  Banks:
-  - {fileID: 114727049549089044}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1500
 --- !u!114 &114988121248769348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2807,3 +1920,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 823
+--- !u!114 &114996275730549386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Woosh
+  guid: 9562d341a46c8e4890824b72054aee91
+  Banks:
+  - {fileID: 114212538042876474}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1500
