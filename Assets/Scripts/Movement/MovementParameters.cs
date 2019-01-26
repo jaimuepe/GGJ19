@@ -7,9 +7,6 @@ public class Movementparameters
     [Header("Movement")]
     public float maxMovementSpeed = 5.0f;
 
-    [Header("Jump")]
-    public float jumpMagnitude;
-    public float jumpTimeSeconds;
     public Vector2 gravityVector;
 }
 

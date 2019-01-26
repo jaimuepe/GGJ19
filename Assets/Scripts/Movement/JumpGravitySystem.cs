@@ -12,8 +12,6 @@ public class JumpGravitySystem : MonoBehaviour
 
     private Vector2 GravityVector { get { return cc.movementParameters.gravityVector; } }
 
-    private float MaxJumpTimeSeconds { get { return cc.movementParameters.jumpTimeSeconds; } }
-
     [Header("Debug")]
 
     [SerializeField]
@@ -35,7 +33,6 @@ public class JumpGravitySystem : MonoBehaviour
     private void Awake()
     {
         cc = GetComponent<CharacterController2D>();
-        airborneTime = MaxJumpTimeSeconds;
     }
 
     private void Start()
