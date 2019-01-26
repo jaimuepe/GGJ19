@@ -10,9 +10,6 @@ public class BreakableDoor : MonoBehaviour
     [SerializeField]
     Sprite mildlyDamagedSprite;
 
-    [SerializeField]
-    Sprite wreckedSprite;
-
     SpriteRenderer sr;
 
     [SerializeField]
@@ -71,7 +68,7 @@ public class BreakableDoor : MonoBehaviour
         }
         else
         {
-            sr.sprite = wreckedSprite;
+            sr.sprite = null;
         }
     }
 
