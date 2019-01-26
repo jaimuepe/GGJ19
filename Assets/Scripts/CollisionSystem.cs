@@ -12,9 +12,9 @@ public class CollisionSystem : MonoBehaviour
     private Vector2 mDeltaMovement;
     private BoxCollider2D boxCollider;
 
-    private Vector2 topLeftCornerOffset;
-    private Vector2 bottomLeftCornerOffset;
-    private Vector2 bottomRightCornerOffset;
+    public Vector2 TopLeftCornerOffset { get; private set; }
+    public Vector2 BottomLeftCornerOffset { get; private set; }
+    public Vector2 BottomRightCornerOffset { get; private set; }
 
     private Transform mTransform;
     private Vector2 Position { get { return mTransform.position; } }
@@ -49,15 +49,15 @@ public class CollisionSystem : MonoBehaviour
     {
         Vector2 extents = boxCollider.bounds.extents;
 
-        topLeftCornerOffset = new Vector2(
+        TopLeftCornerOffset = new Vector2(
            -extents.x,
            extents.y);
 
-        bottomLeftCornerOffset = new Vector2(
+        BottomLeftCornerOffset = new Vector2(
            -extents.x,
            -extents.y);
 
-        bottomRightCornerOffset = new Vector2(
+        BottomRightCornerOffset = new Vector2(
            extents.x,
            -extents.y);
     }
@@ -77,12 +77,12 @@ public class CollisionSystem : MonoBehaviour
 
     private void HandleVerticalCollisions()
     {
-        Vector2 origin = Position + SkinWidth * Vector2.right + (mDeltaMovement.y > 0.0f ? topLeftCornerOffset : bottomLeftCornerOffset);
+        Vector2 origin = Position + SkinWidth * Vector2.right + (mDeltaMovement.y > 0.0f ? TopLeftCornerOffset : BottomLeftCornerOffset);
 
         Vector2 direction = mDeltaMovement.y > 0.0f ? Vector2.up : Vector2.down;
         float rayDistance = Mathf.Abs(mDeltaMovement.y);
 
-        float distanceBetweenRays = (bottomRightCornerOffset.x - bottomLeftCornerOffset.x - 2 * SkinWidth) / (NumberOfVerticalRays - 1);
+        float distanceBetweenRays = (BottomRightCornerOffset.x - BottomLeftCornerOffset.x - 2 * SkinWidth) / (NumberOfVerticalRays - 1);
 
         bool collision = false;
 
@@ -99,7 +99,13 @@ public class CollisionSystem : MonoBehaviour
                     RaycastHit2D hit = raycastHitResults[j];
                     float hitDistance = hit.distance;
 
-                    rayDistance = Mathf.Min(rayDistance, hitDistance);
+                    CollisionObject collisionObject = hit.collider.gameObject.GetComponent<CollisionObject>();
+
+                    if (direction.y > 0.0f && collisionObject.collideFromBottom
+                        || direction.y < 0.0f && collisionObject.collideFromTop)
+                    {
+                        rayDistance = Mathf.Min(rayDistance, hitDistance);
+                    }
                 }
             }
 
@@ -124,12 +130,12 @@ public class CollisionSystem : MonoBehaviour
 
     private void HandleHorizontalCollisions()
     {
-        Vector2 origin = Position + SkinWidth * Vector2.up + (mDeltaMovement.x > 0.0f ? bottomRightCornerOffset : bottomLeftCornerOffset);
+        Vector2 origin = Position + SkinWidth * Vector2.up + (mDeltaMovement.x > 0.0f ? BottomRightCornerOffset : BottomLeftCornerOffset);
 
         Vector2 direction = mDeltaMovement.x > 0.0f ? Vector2.right : Vector2.left;
         float rayDistance = Mathf.Abs(mDeltaMovement.x);
 
-        float distanceBetweenRays = (topLeftCornerOffset.y - bottomLeftCornerOffset.y - 2 * SkinWidth) / (NumberOfHorizontalRays - 1);
+        float distanceBetweenRays = (TopLeftCornerOffset.y - BottomLeftCornerOffset.y - 2 * SkinWidth) / (NumberOfHorizontalRays - 1);
 
         bool collision = false;
 
@@ -144,9 +150,15 @@ public class CollisionSystem : MonoBehaviour
                 for (int j = 0; j < hits; j++)
                 {
                     RaycastHit2D hit = raycastHitResults[j];
-                    float hitDistance = hit.distance;
+                    CollisionObject collisionObject = hit.collider.gameObject.GetComponent<CollisionObject>();
 
-                    rayDistance = Mathf.Min(rayDistance, hitDistance);
+                    if (direction.x > 0.0f && collisionObject.collideFromLeft
+                        || direction.x < 0.0f && collisionObject.collideFromRight)
+                    {
+                        float hitDistance = hit.distance;
+                        rayDistance = Mathf.Min(rayDistance, hitDistance);
+                    }
+
                 }
             }
 
@@ -173,8 +185,8 @@ public class CollisionSystem : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawCube(Position + topLeftCornerOffset, 0.1f * Vector3.one);
-        Gizmos.DrawCube(Position + bottomLeftCornerOffset, 0.1f * Vector3.one);
-        Gizmos.DrawCube(Position + bottomRightCornerOffset, 0.1f * Vector3.one);
+        Gizmos.DrawCube(Position + TopLeftCornerOffset, 0.1f * Vector3.one);
+        Gizmos.DrawCube(Position + BottomLeftCornerOffset, 0.1f * Vector3.one);
+        Gizmos.DrawCube(Position + BottomRightCornerOffset, 0.1f * Vector3.one);
     }
 }

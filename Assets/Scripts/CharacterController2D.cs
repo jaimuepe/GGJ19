@@ -14,8 +14,7 @@ public class CharacterController2D : MonoBehaviour
 
     [Header("Debug")]
 
-    [SerializeField]
-    private Vector2 mTotalVelocity;
+    private Vector2 deltaMovement;
 
     [NonSerialized]
     public MovementSystem movementSystem;
@@ -55,7 +54,7 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-    public void RequestMove(float moveDirection)
+    public void RequestHorizontal(float moveDirection)
     {
         // either -1, 0 or 1
         if (moveDirection != 0.0f)
@@ -71,29 +70,44 @@ public class CharacterController2D : MonoBehaviour
         movementSystem.Calculate();
         jumpSystem.Calculate();
 
-        mTotalVelocity = new Vector2(movementSystem.AccumulatedVelocity + jumpSystem.AccumulatedVelocity.x,
+        Vector2 mTotalVelocity = new Vector2(
+            movementSystem.AccumulatedVelocity,
             jumpSystem.AccumulatedVelocity.y);
 
-        Vector2 deltaMovement = mTotalVelocity * Time.deltaTime;
+        deltaMovement = mTotalVelocity * Time.deltaTime;
 
-        deltaMovement = collisionSystem.Calculate(deltaMovement);
+        stairsSystem.Calculate(ref deltaMovement);
+        if (collisionSystem.enabled)
+        {
+            deltaMovement = collisionSystem.Calculate(deltaMovement);
+        }
 
         movementSystem.UpdateCollisionData();
         jumpSystem.UpdateCollisionData();
+    }
 
-        mTotalVelocity = new Vector2(movementSystem.AccumulatedVelocity + jumpSystem.AccumulatedVelocity.x,
-            jumpSystem.AccumulatedVelocity.y);
-
-        ResolvePosition(deltaMovement);
-
+    private void LateUpdate()
+    {
+        ResolvePosition();
         movementSystem.ClearVariablesEndFrame();
     }
 
-    private void ResolvePosition(Vector2 deltaMovement)
+    private void ResolvePosition()
     {
+        float y = mTransform.position.y + deltaMovement.y;
+
         mTransform.position = new Vector3(
-                Mathf.Lerp(mTransform.position.x, mTransform.position.x + deltaMovement.x, smoothSpeed * Time.deltaTime),
-                mTransform.position.y + deltaMovement.y,
+                Mathf.Lerp(
+                    mTransform.position.x,
+                    mTransform.position.x + deltaMovement.x,
+                    smoothSpeed * Time.deltaTime),
+                y,
+                /*
+                Mathf.Lerp(
+                     mTransform.position.y,
+                     y,
+                    smoothSpeed * Time.deltaTime),
+                 */
                 mTransform.position.z);
     }
 }

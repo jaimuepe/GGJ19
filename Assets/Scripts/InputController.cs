@@ -8,7 +8,8 @@ public class InputController : MonoBehaviour
     [SerializeField]
     private CharacterController2D characterController2D;
 
-    private float moveDirection;
+    public float HorizontalInput { get; private set; }
+    public float VerticalInput { get; private set; }
 
     private void Update()
     {
@@ -18,16 +19,15 @@ public class InputController : MonoBehaviour
 
     private void GetInput()
     {
-        moveDirection = Input.GetAxisRaw("Horizontal");
+        HorizontalInput = Input.GetAxisRaw("Horizontal");
+        VerticalInput = Input.GetAxisRaw("Vertical");
     }
 
     private void ProcessInput()
     {
-        Debug.Log(moveDirection != 0.0f);
-
-        if (moveDirection != 0.0f)
+        if (HorizontalInput != 0.0f)
         {
-            characterController2D.RequestMove(moveDirection);
+            characterController2D.RequestHorizontal(HorizontalInput);
         }
     }
 }

@@ -23,9 +23,6 @@ public class JumpGravitySystem : MonoBehaviour
     private bool falling;
 
     [SerializeField]
-    private bool jumping;
-
-    [SerializeField]
     private Vector2 mAccumulatedVelocity;
 
     [SerializeField]
@@ -33,38 +30,34 @@ public class JumpGravitySystem : MonoBehaviour
 
     private CharacterController2D cc;
 
+    private StairsSystem stairsSystem;
+
     private void Awake()
     {
         cc = GetComponent<CharacterController2D>();
         airborneTime = MaxJumpTimeSeconds;
     }
 
+    private void Start()
+    {
+        stairsSystem = GetComponent<StairsSystem>();
+    }
+
     public void Calculate()
     {
         falling = false;
 
-        if (Grounded)
+        if (Grounded || stairsSystem.UsingStairs)
         {
             airborneTime = 0.0f;
+            mAccumulatedVelocity = Vector2.zero;
         }
         else if (Airborne)
         {
             // falling
             mAccumulatedVelocity = GravityVector
-                * Mathf.Lerp(0.0f, 1.0f, airborneTime - MaxJumpTimeSeconds);
+                * Mathf.Lerp(0.0f, 1.0f, airborneTime);
             airborneTime += Time.deltaTime;
-        }
-        else
-        {
-            airborneTime = 0.0f;
-        }
-    }
-
-    public void TryJump()
-    {
-        if (Grounded)
-        {
-            jumping = true;
         }
     }
 
@@ -73,7 +66,7 @@ public class JumpGravitySystem : MonoBehaviour
         CollisionData cData = cc.collisionSystem.Data;
         int collisionSides = cData.collisionSides;
 
-        if ((collisionSides & CollisionData.COLLIDE_BOTTOM) > 0)
+        if (cc.collisionSystem.enabled && (collisionSides & CollisionData.COLLIDE_BOTTOM) > 0)
         {
             grounded = true;
 
