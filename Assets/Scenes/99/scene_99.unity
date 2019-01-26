@@ -552,8 +552,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementParameters:
     maxMovementSpeed: 10
-    jumpMagnitude: 16
-    jumpTimeSeconds: 0.4
     gravityVector: {x: 0, y: -16}
   collisionParameters:
     groundForgivingDistance: 0.1
@@ -561,6 +559,8 @@ MonoBehaviour:
     numberOfHorizontalRays: 5
     skinWidth: 0.003
   smoothSpeed: 25
+  turnSpeed: 0
+  squeakEmitter: {fileID: 0}
 --- !u!61 &2001627569
 BoxCollider2D:
   m_ObjectHideFlags: 0
