@@ -78,7 +78,6 @@ public class CharacterInteractions : MonoBehaviour
         {
             InteractableObjectSprite interactable = interactableObject.GetComponent<InteractableObjectSprite>();
             InteractionsManager.Instance.ResolveInteraction(interactable.id, interactableObject);
-            // ProcessAction(other.gameObject);
         }
     }
 

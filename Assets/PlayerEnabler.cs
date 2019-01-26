@@ -9,6 +9,9 @@ public class PlayerEnabler : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             CharacterController2D controller = collision.gameObject.GetComponent<CharacterController2D>();
+            CharacterInteractions ch = collision.gameObject.GetComponent<CharacterInteractions>();
+
+            ch.InteractionsEnabled = true;
             controller.MovementEnabled = true;
             controller.WalkRightEndlessly = false;
         }

@@ -14,7 +14,7 @@ public class RotatingWheel : MonoBehaviour
 
     public WallRotatingFish rotatingFish;
 
-    private bool usable = true;
+    public bool usable = true;
 
     private void Start()
     {

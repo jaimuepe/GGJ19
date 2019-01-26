@@ -123,6 +123,10 @@ public class LevelTransitionManager : MonoBehaviour
                 0.0f);
 
                 CharacterController2D cc = t.gameObject.GetComponent<CharacterController2D>();
+                cc.MovementEnabled = false;
+                CharacterInteractions ch = t.gameObject.GetComponent<CharacterInteractions>();
+                ch.InteractionsEnabled = false;
+
                 cc.WalkRightEndlessly = true;
             }
             else

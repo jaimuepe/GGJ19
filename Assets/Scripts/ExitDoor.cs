@@ -15,32 +15,11 @@ public class ExitDoor : MonoBehaviour
 
     Transform mTransform;
 
-    bool usable = true;
+    public bool usable = true;
 
     private void OnEnable()
     {
         mTransform = transform;
-    }
-
-#if UNITY_EDITOR
-    private void Update()
-    {
-        if (!usable)
-        {
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            ExitRoom();
-        }
-    }
-#endif
-
-    public void ExitRoom()
-    {
-        usable = false;
-        LevelTransitionManager.Instance.LoadNextLevel();
     }
 
     public FMODUnity.StudioEventEmitter emitterHit;

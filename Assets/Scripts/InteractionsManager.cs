@@ -51,6 +51,14 @@ public class InteractionsManager : MonoBehaviour
         }
         else if (interactionId == "exit_door_00")
         {
+            ExitDoor exitDoor = obj.GetComponent<ExitDoor>();
+            if (!exitDoor.usable)
+            {
+                return;
+            }
+
+            exitDoor.usable = false;
+
             Player.GetComponent<CharacterController2D>().WalkRightEndlessly = true;
 
             GameObject depthWall = GameObject.FindGameObjectWithTag("DepthWall");
@@ -67,19 +75,27 @@ public class InteractionsManager : MonoBehaviour
             interactionId == "wall_fish_02")
         {
             RotatingWheel rotatingWheel = obj.GetComponent<RotatingWheel>();
+            if (!rotatingWheel.usable)
+            {
+                return;
+            }
             rotatingWheel.Rotate();
         }
         else if (interactionId == "wheel_puzzle_ok")
         {
-            Player.GetComponent<CharacterController2D>().MovementEnabled = false;
-            Player.GetComponent<CharacterInteractions>().InteractionsEnabled = false;
-
             StartCoroutine(WheelPuzzleActions());
         }
     }
-    
+
     IEnumerator WheelPuzzleActions()
     {
+        Player.GetComponent<CharacterController2D>().MovementEnabled = false;
+        Player.GetComponent<CharacterInteractions>().InteractionsEnabled = false;
+
+        GameObject doorLight = GameObject.FindGameObjectWithTag("DoorLight");
+
+        doorLight.gameObject.SetActive(true);
+
         yield return null;
     }
 }
