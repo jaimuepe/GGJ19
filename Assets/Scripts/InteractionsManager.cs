@@ -128,7 +128,7 @@ public class InteractionsManager : MonoBehaviour
         Player.GetComponent<CharacterInteractions>().InteractionsEnabled = false;
 
         GameObject topLight = GameObject.FindGameObjectWithTag("TopLight");
-        topLight.SetActive(false);
+        topLight.GetComponent<FlickeringLight>().TurnOffLight();
 
         GameObject doorLight = GameObject.FindGameObjectWithTag("DoorLight");
 

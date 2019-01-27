@@ -11,6 +11,8 @@ public class FinalSceneAnimation : MonoBehaviour
 
     public bool startDebug;
 
+    public ParticleSystem ps;
+
     private void Start()
     {
         if (startDebug)
@@ -29,7 +31,7 @@ public class FinalSceneAnimation : MonoBehaviour
         fullyClothedMesh.gameObject.SetActive(true);
         fullyClothedMesh.GetComponent<Animator>().SetBool("walk", true);
 
-        Vector3 secondPosition = new Vector3(-2.5f, -3.2f, 0.0f);
+        Vector3 secondPosition = new Vector3(-2.3f, -3.0f, 0.0f);
 
         Transform fullyClothedTransform = fullyClothedMesh.transform;
 
@@ -47,11 +49,21 @@ public class FinalSceneAnimation : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
 
+        fullyClothedMesh.GetComponent<Animator>().SetBool("fall", true);
+
+        yield return new WaitForSeconds(2.0f);
+
         fishMesh.transform.position = fullyClothedMesh.transform.position;
 
         fullyClothedMesh.gameObject.SetActive(false);
         fishMesh.gameObject.SetActive(true);
 
         yield return null;
+    }
+
+    public void PlaySandParticleSystem()
+    {
+        ps.transform.position = fullyClothedMesh.transform.position;
+        ps.Play();
     }
 }
