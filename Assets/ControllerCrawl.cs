@@ -41,6 +41,36 @@ public class ControllerCrawl : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
 
+        StartCoroutine(Fade());
+        StartCoroutine(Zoom());
+        yield return new WaitForSeconds(3.0f);
+
+        StartCoroutine(UnFade());
+    }
+
+    IEnumerator Zoom()
+    {
+        Camera mainCamera = Camera.main;
+        Transform mainCameraTransform = mainCamera.transform;
+
+        Vector3 cameraTarget = new Vector3(target.x, target.y, mainCameraTransform.position.z);
+
+        while (true)
+        {
+            mainCamera.orthographicSize = 
+                Mathf.Clamp(mainCamera.orthographicSize - Time.deltaTime, 0.01f, Mathf.Infinity);
+
+            mainCameraTransform.position = Vector3.MoveTowards(
+            mainCameraTransform.position,
+            cameraTarget,
+            0.5f * Time.deltaTime);
+
+            yield return null;
+        }
+    }
+
+    IEnumerator Fade()
+    {
         float duration = 3.0f;
 
         float start = Time.time;
@@ -59,10 +89,6 @@ public class ControllerCrawl : MonoBehaviour
             yield return null;
         }
         fadeOutPanel.color = endColor;
-
-        yield return new WaitForSeconds(1.0f);
-
-        StartCoroutine(UnFade());
     }
 
     IEnumerator UnFade()
