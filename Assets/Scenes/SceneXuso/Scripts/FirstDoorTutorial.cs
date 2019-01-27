@@ -27,8 +27,8 @@ public class FirstDoorTutorial : MonoBehaviour
     {
         if (!_tutorialShowed)
         {
-            m_TutorialManager.ShowActionTutorial();
             _tutorialShowed = true;
+            m_TutorialManager.ShowActionTutorial();
         }
     }
 }

@@ -86,15 +86,16 @@ public class InputController : MonoBehaviour
                 return;
             }
         }
-        else if (!_actionTutorialPassed && _movementTutorialPassed)
+    }
+
+    public void ActionTutorialPass()
+    {
+        if (!_actionTutorialPassed && _movementTutorialPassed)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                _blockMovement = false;
-                _movementTutorialPassed = true;
-                _onTutorial = false;
-                m_TutorialManager.ShowActionTutorial(false);
-            }
+            _blockMovement = false;
+            _movementTutorialPassed = true;
+            _onTutorial = false;
+            m_TutorialManager.ShowActionTutorial(false);
         }
     }
 }

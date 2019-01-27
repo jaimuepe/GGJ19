@@ -47,6 +47,7 @@ public class InteractionsManager : MonoBehaviour
 
         if (interactionId == "breakable_door_00")
         {
+            GameObject.Find("InputController").GetComponent<InputController>().ActionTutorialPass();
             Player.GetComponentInChildren<Animator>().SetBool("headbutt", true);
         }
         else if (interactionId == "exit_door_00" || interactionId == "exit_door_01"
