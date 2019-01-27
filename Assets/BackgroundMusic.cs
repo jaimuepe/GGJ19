@@ -23,5 +23,9 @@ public class BackgroundMusic : MonoBehaviour
         {
             bgEmitter.SetParameter("ingame", 1.0f);
         }
+        else if (scene.name == "scene99")
+        {
+            bgEmitter.SetParameter("playa", 1.0f);
+        }
     }
 }

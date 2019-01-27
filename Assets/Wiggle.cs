@@ -16,14 +16,21 @@ public class Wiggle : MonoBehaviour
     {
         mTransform = transform;
         basePosition = mTransform.position;
-        phase = Random.Range(0.0f, 360.0f);
+        phase = Random.Range(0.0f, 2 * Mathf.PI);
+    }
+
+    private void OnEnable()
+    {
+        mTransform = transform;
+        basePosition = mTransform.position;
+        phase = Random.Range(0.0f, 2 * Mathf.PI);
     }
 
     private void Update()
     {
         mTransform.position = new Vector3(
             basePosition.x,
-            mTransform.position.y + magnitude * Mathf.Cos(phase + Time.time / frequency),
+            basePosition.y + magnitude * Mathf.Cos(phase + Time.time / frequency),
             basePosition.z);
     }
 }
