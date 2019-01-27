@@ -1603,12 +1603,12 @@ PrefabInstance:
     - target: {fileID: 7673417579568589440, guid: d8cd48d2f68ccd84c8f2b692fe2676bc,
         type: 3}
       propertyPath: InitialModule.size3D
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7673417579568589440, guid: d8cd48d2f68ccd84c8f2b692fe2676bc,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7673417579568589440, guid: d8cd48d2f68ccd84c8f2b692fe2676bc,
         type: 3}
@@ -1619,6 +1619,21 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startSizeZ.scalar
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7673417579568589440, guid: d8cd48d2f68ccd84c8f2b692fe2676bc,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7673417579568589440, guid: d8cd48d2f68ccd84c8f2b692fe2676bc,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7673417579568589440, guid: d8cd48d2f68ccd84c8f2b692fe2676bc,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7673417579568589443, guid: d8cd48d2f68ccd84c8f2b692fe2676bc,
         type: 3}
