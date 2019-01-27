@@ -7,9 +7,13 @@ public class InputController : MonoBehaviour
 
     private CharacterController2D characterController2D;
 
-    private bool _gamepadConnected;
+    public bool _gamepadConnected;
     public float HorizontalInput { get; private set; }
     public float VerticalInput { get; private set; }
+
+    public bool _onTutorial, _blockMovement;
+    public bool _movementTutorialPassed, _actionTutorialPassed = true;
+    public TutorialManager m_TutorialManager;
 
     private void Start()
     {
@@ -22,21 +26,31 @@ public class InputController : MonoBehaviour
     private void Update()
     {
         GetInput();
-        ProcessInput();
+        if (!_blockMovement)
+        {
+            ProcessInput();
+        }
     }
 
     private void GetInput()
     {
-        if (true)
+        if (!_onTutorial)
         {
-            HorizontalInput = Input.GetAxisRaw("Horizontal");
-            VerticalInput = Input.GetAxisRaw("Vertical");
+            if (true)
+            {
+                HorizontalInput = Input.GetAxisRaw("Horizontal");
+                VerticalInput = Input.GetAxisRaw("Vertical");
+            }
+            else
+            {
+                HorizontalInput = Input.GetAxisRaw("HorizontalXbox360");
+                VerticalInput = Input.GetAxisRaw("Vertical");
+            }
         }
         else
         {
-            HorizontalInput = Input.GetAxisRaw("HorizontalXbox360");
-            VerticalInput = Input.GetAxisRaw("Vertical");
-        }   
+            TutorialChecker();
+        }
     }
 
     private void ProcessInput()
@@ -50,9 +64,36 @@ public class InputController : MonoBehaviour
         }
         else
         {
-            if (Mathf.Abs(HorizontalInput)>0.9f)
+            if (Mathf.Abs(HorizontalInput) > 0.9f)
             {
                 characterController2D.RequestHorizontal(HorizontalInput);
+            }
+        }
+    }
+
+    private void TutorialChecker()
+    {
+        if (!_blockMovement)
+        {
+            if (!_movementTutorialPassed)
+            {
+                if (Input.GetAxisRaw("Horizontal") > 0f)
+                {
+                    _movementTutorialPassed = true;
+                    _onTutorial = false;
+                    m_TutorialManager.ShowMovementTutorial(false);
+                }
+                return;
+            }
+        }
+        else if (!_actionTutorialPassed && _movementTutorialPassed)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                _blockMovement = false;
+                _movementTutorialPassed = true;
+                _onTutorial = false;
+                m_TutorialManager.ShowActionTutorial(false);
             }
         }
     }

@@ -44,6 +44,6 @@ public class DialogFloatingFollow : MonoBehaviour
             }
             directionMultiplier = -1;
         }
-        transform.position = new Vector3(boneToFollow.position.x+(0.5f* directionMultiplier), boneToFollow.position.y+1f, boneToFollow.position.z);    
+        transform.position = new Vector3(boneToFollow.position.x-(1f*directionMultiplier), boneToFollow.position.y+1f, boneToFollow.position.z);    
     }
 }
