@@ -177,7 +177,7 @@ ModelImporter:
       name: Idle
       takeName: Take 001
       firstFrame: 70
-      lastFrame: 90
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
