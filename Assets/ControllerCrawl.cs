@@ -37,6 +37,7 @@ public class ControllerCrawl : MonoBehaviour
 
     public Image fadeOutPanel;
     public Image endGameImage;
+    public Image endGameTitle;
 
     IEnumerator FadeToWhite()
     {
@@ -55,6 +56,7 @@ public class ControllerCrawl : MonoBehaviour
         yield return new WaitForSeconds(4.0f);
 
         endGameImage.gameObject.SetActive(true);
+        endGameTitle.gameObject.SetActive(true);
 
         StartCoroutine(UnFade(3.0f));
         yield return new WaitForSeconds(6.0f);
