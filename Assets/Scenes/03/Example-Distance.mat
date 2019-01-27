@@ -34,9 +34,9 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0.822}
     - _ColorIntensityFade: {r: 0, g: 0.05, b: 0, a: 0}
-    - _DistanceFade: {r: 0, g: 30, b: 0, a: 0}
+    - _DistanceFade: {r: 8, g: 100, b: 0, a: 0}
     - _Intensity: {r: 0.1, g: 0.1, b: 0.1, a: 0.5}
-    - _IntensityAndScrolling: {r: 0.1, g: 0.1, b: 0.3, a: 0.5}
+    - _IntensityAndScrolling: {r: 0.01, g: 0.01, b: 0.5, a: 0.5}
     - _NearFarParams: {r: 0, g: 50, b: 0, a: 0}
     - _PivotAndAngle: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 1}

@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/02/scene_02.unity
     guid: 8799277977f726b4bba3c6b42c361d19
   - enabled: 1
+    path: Assets/Scenes/03/scene_03.unity
+    guid: dc36f076956dc634696fe949a5582612
+  - enabled: 1
     path: Assets/Scenes/SceneXuso/MainMenu.unity
     guid: 8b85b744c94949e4cb0bc800d9a02957
   m_configObjects: {}

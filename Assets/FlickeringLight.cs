@@ -16,10 +16,27 @@ public class FlickeringLight : MonoBehaviour
     SpriteRenderer sr;
     public GameObject[] symbols;
 
+    public FMODUnity.StudioEventEmitter humEmitter;
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         StartCoroutine(Flicker());
+
+        humEmitter.SetParameter("On/Off", 1);
+        humEmitter.Play();
+    }
+
+    private void Update()
+    {
+        if (sr.enabled)
+        {
+            humEmitter.SetParameter("On/Off", 1);
+        }
+        else
+        {
+            humEmitter.SetParameter("On/Off", 0);
+        }
     }
 
     private IEnumerator Flicker()
@@ -38,6 +55,7 @@ public class FlickeringLight : MonoBehaviour
                     symbols[i].SetActive(true);
                 }
 
+                // humEmitter.SetParameter("On/Off", 0);
                 yield return new WaitForSeconds(Random.Range(minOffTime, maxOffTime));
             }
             else
@@ -50,6 +68,7 @@ public class FlickeringLight : MonoBehaviour
                     symbols[i].SetActive(false);
                 }
 
+                // humEmitter.SetParameter("On/Off", 1);
                 yield return new WaitForSeconds(Random.Range(minOnTime, maxOnTime));
             }
             yield return new WaitForSeconds(Random.Range(minDelayTime, maxDelayTime));

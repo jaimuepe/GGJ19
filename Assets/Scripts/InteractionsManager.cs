@@ -49,7 +49,8 @@ public class InteractionsManager : MonoBehaviour
         {
             Player.GetComponentInChildren<Animator>().SetBool("headbutt", true);
         }
-        else if (interactionId == "exit_door_00" || interactionId == "exit_door_01")
+        else if (interactionId == "exit_door_00" || interactionId == "exit_door_01"
+            || interactionId == "exit_door_02")
         {
             ExitDoor exitDoor = obj.GetComponent<ExitDoor>();
             if (!exitDoor.usable)
@@ -87,6 +88,25 @@ public class InteractionsManager : MonoBehaviour
         else if (interactionId == "wheel_puzzle_ok")
         {
             StartCoroutine(WheelPuzzleActions());
+        }
+        else if (interactionId == "exit_door_desert")
+        {
+            ExitDoorDesert door = obj.GetComponent<ExitDoorDesert>();
+            if (door.numberTimesUsed == 0 || door.numberTimesUsed == 1 || door.numberTimesUsed == 2)
+            {
+                Player.GetComponent<CharacterController2D>().WalkRightEndlessly = true;
+
+                DesertManager dm = FindObjectOfType<DesertManager>();
+                dm.Transition();
+            }
+            else
+            {
+                door.usable = false;
+                Player.GetComponent<CharacterController2D>().WalkRightEndlessly = true;
+                LevelTransitionManager.Instance.LoadNextLevel();
+            }
+
+            door.numberTimesUsed++;
         }
     }
 
