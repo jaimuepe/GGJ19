@@ -63,7 +63,10 @@ public class ControllerCrawl : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         DontDestroyCamera ddc = FindObjectOfType<DontDestroyCamera>();
-        Destroy(ddc.gameObject);
+        if (ddc)
+        {
+            Destroy(ddc.gameObject);
+        }
 
         if (bgMusic)
         {
