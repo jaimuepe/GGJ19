@@ -42,10 +42,13 @@ public class ControllerCrawl : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
 
-        FMODUnity.StudioEventEmitter bgEmitter
-            = GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<FMODUnity.StudioEventEmitter>();
-
-        bgEmitter.SetParameter("finl", 1.0f);
+        GameObject bgMusic = GameObject.FindGameObjectWithTag("BackgroundMusic");
+        if (bgMusic)
+        {
+            FMODUnity.StudioEventEmitter emitter =
+                GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<FMODUnity.StudioEventEmitter>();
+            emitter.SetParameter("finl", 1.0f);
+        }
 
         StartCoroutine(Fade(3.0f));
         StartCoroutine(Zoom());
@@ -61,11 +64,15 @@ public class ControllerCrawl : MonoBehaviour
 
         DontDestroyCamera ddc = FindObjectOfType<DontDestroyCamera>();
         Destroy(ddc.gameObject);
-        Destroy(bgEmitter.gameObject);
+
+        if (bgMusic)
+        {
+            Destroy(bgMusic);
+        }
 
         SceneManager.LoadScene(0);
     }
-    
+
     IEnumerator Zoom()
     {
         Camera mainCamera = Camera.main;
@@ -75,7 +82,7 @@ public class ControllerCrawl : MonoBehaviour
 
         while (true)
         {
-            mainCamera.orthographicSize = 
+            mainCamera.orthographicSize =
                 Mathf.Clamp(mainCamera.orthographicSize - Time.deltaTime, 0.01f, Mathf.Infinity);
 
             mainCameraTransform.position = Vector3.MoveTowards(

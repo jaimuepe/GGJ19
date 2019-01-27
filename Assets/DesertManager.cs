@@ -27,11 +27,13 @@ public class DesertManager : MonoBehaviour
         bg2.color = new Color(bg2.color.r, bg2.color.g, bg2.color.b, 0);
         light2.color = new Color(light2.color.r, light2.color.g, light2.color.b, 0);
 
-        FMODUnity.StudioEventEmitter bgEMitter 
-            = GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<FMODUnity.StudioEventEmitter>();
-
-        bgEMitter.SetParameter("room2", 1.0f);
-
+        GameObject bgMusic = GameObject.FindGameObjectWithTag("BackgroundMusic");
+        if (bgMusic)
+        {
+            FMODUnity.StudioEventEmitter emitter =
+                GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<FMODUnity.StudioEventEmitter>();
+            emitter.SetParameter("room2", 1.0f);
+        }
     }
 
     public void Transition()
