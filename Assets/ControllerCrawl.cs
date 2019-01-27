@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ControllerCrawl : MonoBehaviour
 {
@@ -33,9 +34,59 @@ public class ControllerCrawl : MonoBehaviour
 
     bool canMove = true;
 
+    public Image fadeOutPanel;
+    public Image endGameImage;
+
     IEnumerator FadeToWhite()
     {
         yield return new WaitForSeconds(1.0f);
+
+        float duration = 3.0f;
+
+        float start = Time.time;
+        float elapsed = 0;
+        Color endColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        Color startColor = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+
+        fadeOutPanel.color = startColor;
+
+        while (elapsed < duration)
+        {
+            // calculate how far through we are
+            elapsed = Time.time - start;
+            float normalisedTime = Mathf.Clamp(elapsed / duration, 0, 1);
+            fadeOutPanel.color = Color.Lerp(startColor, endColor, normalisedTime);
+            yield return null;
+        }
+        fadeOutPanel.color = endColor;
+
+        yield return new WaitForSeconds(1.0f);
+
+        StartCoroutine(UnFade());
+    }
+
+    IEnumerator UnFade()
+    {
+        endGameImage.gameObject.SetActive(true);
+
+        float duration = 3.0f;
+
+        float start = Time.time;
+        float elapsed = 0;
+        Color startColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        Color endColor = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+
+        fadeOutPanel.color = startColor;
+
+        while (elapsed < duration)
+        {
+            // calculate how far through we are
+            elapsed = Time.time - start;
+            float normalisedTime = Mathf.Clamp(elapsed / duration, 0, 1);
+            fadeOutPanel.color = Color.Lerp(startColor, endColor, normalisedTime);
+            yield return null;
+        }
+        fadeOutPanel.color = endColor;
     }
 
     IEnumerator Move()
@@ -63,7 +114,7 @@ public class ControllerCrawl : MonoBehaviour
             transform.position = target;
         }
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.5f);
         canMove = true;
     }
 }

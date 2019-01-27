@@ -9,13 +9,24 @@ public class FinalSceneAnimation : MonoBehaviour
     public GameObject unicycleMesh;
     public GameObject fishMesh;
 
-    void Start()
+    public bool startDebug;
+
+    private void Start()
+    {
+        if (startDebug)
+        {
+            StartAnimating();
+        }
+    }
+
+    public void StartAnimating()
     {
         StartCoroutine(Animation1());
     }
 
     IEnumerator Animation1()
     {
+        fullyClothedMesh.gameObject.SetActive(true);
         fullyClothedMesh.GetComponent<Animator>().SetBool("walk", true);
 
         Vector3 secondPosition = new Vector3(-2.5f, -3.2f, 0.0f);

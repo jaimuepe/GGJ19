@@ -79,7 +79,7 @@ public class LevelTransitionManager : MonoBehaviour
 
         yield return SceneManager.UnloadSceneAsync(currentScene.buildIndex);
         DisplaceEverythingBack();
-       
+
     }
 
     private void DisplaceCamera()
@@ -173,6 +173,12 @@ public class LevelTransitionManager : MonoBehaviour
                     0.0f,
                     0.0f);
             }
+        }
+
+        FinalSceneAnimation finalAnim = FindObjectOfType<FinalSceneAnimation>();
+        if (finalAnim)
+        {
+            finalAnim.StartAnimating();
         }
     }
 }
