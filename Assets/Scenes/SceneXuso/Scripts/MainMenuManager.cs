@@ -21,7 +21,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void LoadScene()
     {
-        clickEmitter.Play();
         StartCoroutine(LoadSceneCoroutine());
     }
 

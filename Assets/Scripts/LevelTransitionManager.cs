@@ -56,6 +56,9 @@ public class LevelTransitionManager : MonoBehaviour
 
         float animationTime = 0.0f;
 
+        BackgroundMusic bgm = FindObjectOfType<BackgroundMusic>();
+        Transform bgmTransform = bgm ? bgm.transform : null;
+
         while (mainCameraTransform.position.x < camWidth)
         {
             mainCameraTransform.position = Vector3.Lerp(
@@ -67,15 +70,34 @@ public class LevelTransitionManager : MonoBehaviour
                     mainCameraTransform.position.z
                 ), 35.0f * Time.deltaTime);
 
+            if (bgmTransform)
+            {
+                bgmTransform.position = Vector3.Lerp(
+                    bgmTransform.position,
+                    new Vector3(
+                        bgmTransform.position.x
+                            + cameraSpeed * cameraSpeedCurve.Evaluate(animationTime) * Time.deltaTime,
+                        bgmTransform.position.y,
+                        bgmTransform.position.z
+                    ), 35.0f * Time.deltaTime);
+            }
+
             animationTime += Time.deltaTime;
             yield return null;
         }
 
         mainCameraTransform.position = new Vector3(
+            camWidth,
+            mainCameraTransform.position.y,
+            mainCameraTransform.position.z);
+
+        if (bgmTransform)
+        {
+            bgmTransform.position = new Vector3(
                 camWidth,
-                mainCameraTransform.position.y,
-                mainCameraTransform.position.z
-                );
+                bgmTransform.position.y,
+                bgmTransform.position.z);
+        }
 
         yield return SceneManager.UnloadSceneAsync(currentScene.buildIndex);
         DisplaceEverythingBack();
@@ -155,6 +177,17 @@ public class LevelTransitionManager : MonoBehaviour
             mainCameraTransform.position.y,
             mainCameraTransform.position.z
             );
+
+        BackgroundMusic bgm = FindObjectOfType<BackgroundMusic>();
+        Transform bgmTransform = bgm ? bgm.transform : null;
+
+        if (bgmTransform)
+        {
+            bgmTransform.position = new Vector3(
+            0.0f,
+            bgmTransform.position.y,
+            bgmTransform.position.z);
+        }
 
         for (int i = 0; i < scene.GetRootGameObjects().Length; i++)
         {
