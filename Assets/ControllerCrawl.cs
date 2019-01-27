@@ -53,6 +53,10 @@ public class ControllerCrawl : MonoBehaviour
 
         StartCoroutine(Fade(1.0f));
         yield return new WaitForSeconds(1.5f);
+
+        DontDestroyCamera ddc = FindObjectOfType<DontDestroyCamera>();
+        Destroy(ddc);
+
         SceneManager.LoadScene(0);
     }
     

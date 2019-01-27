@@ -33,9 +33,16 @@ public class AnimatorEventReceiver : MonoBehaviour
     }
 
     public FMODUnity.StudioEventEmitter wooshEmitter;
+    public FMODUnity.StudioEventEmitter walkEmitter;
 
-    public void Wooshh()
+    public void Woosh()
     {
+        Debug.Log("Woosh");
         wooshEmitter.Play();
+    }
+
+    public void Walk()
+    {
+        walkEmitter.Play();
     }
 }
