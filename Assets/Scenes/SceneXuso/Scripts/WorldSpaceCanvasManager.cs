@@ -13,7 +13,15 @@ public class WorldSpaceCanvasManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ShowActionButtonDialog();
+        }
 
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ShowMovementKeysDialog();
+        }
     }
 
     public void ShowActionButtonDialog()

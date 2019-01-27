@@ -8,11 +8,12 @@ public class MainMenuManager : MonoBehaviour
     public string sceneToLoad;
     public Text tittleText;
     public GameObject fish;
-    public Animator canvasAnim;
+    public Animator canvasAnim, fishAnim, faderAnim;
 
     void Start()
     {
-        WriteTittle();
+        canvasAnim.Play("MainMenu_WriteTittle");
+        //WriteTittle();
     }
 
     void Update()
@@ -28,7 +29,8 @@ public class MainMenuManager : MonoBehaviour
     IEnumerator LoadSceneCoroutine()
     {
         fish.GetComponent<Animator>().Play("Headbutt");
-        yield return new WaitForSeconds(2f);
+        faderAnim.Play("MainMenu_Fade");
+        yield return new WaitForSeconds(3f);
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
     }
 
@@ -51,5 +53,10 @@ public class MainMenuManager : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         canvasAnim.Play("MainMenu_WriteTittle");
+    }
+
+    public void ShowFish()
+    {
+        fishAnim.Play("MainMenu_ShowFish");
     }
 }
