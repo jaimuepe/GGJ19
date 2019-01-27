@@ -10,6 +10,7 @@ TagManager:
   - DoorLight
   - TopLight
   - ExitDoor
+  - BackgroundMusic
   layers:
   - Default
   - TransparentFX

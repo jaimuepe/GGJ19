@@ -137,6 +137,10 @@ public class InteractionsManager : MonoBehaviour
         yield return new WaitForSeconds(2.4f);
         doorLight.GetComponent<Animator>().SetBool("fadein", true);
 
+        FMODUnity.StudioEventEmitter emitter =
+            GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<FMODUnity.StudioEventEmitter>();
+        emitter.SetParameter("Room", 1.0f);
+
         Player.GetComponent<CharacterController2D>().MovementEnabled = true;
         Player.GetComponent<CharacterInteractions>().InteractionsEnabled = true;
 

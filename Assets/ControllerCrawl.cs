@@ -42,6 +42,11 @@ public class ControllerCrawl : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
 
+        FMODUnity.StudioEventEmitter bgEmitter
+            = GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<FMODUnity.StudioEventEmitter>();
+
+        bgEmitter.SetParameter("finl", 1.0f);
+
         StartCoroutine(Fade(3.0f));
         StartCoroutine(Zoom());
         yield return new WaitForSeconds(4.0f);
@@ -55,7 +60,8 @@ public class ControllerCrawl : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         DontDestroyCamera ddc = FindObjectOfType<DontDestroyCamera>();
-        Destroy(ddc);
+        Destroy(ddc.gameObject);
+        Destroy(bgEmitter.gameObject);
 
         SceneManager.LoadScene(0);
     }
