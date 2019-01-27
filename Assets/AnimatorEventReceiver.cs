@@ -17,6 +17,7 @@ public class AnimatorEventReceiver : MonoBehaviour
     public void HeadbuttHit()
     {
         BreakableDoor bDoor = FindObjectOfType<BreakableDoor>();
+        talkOuchyEmitter.Play();
         bDoor.HeadButt();
     }
 
@@ -35,6 +36,7 @@ public class AnimatorEventReceiver : MonoBehaviour
     public FMODUnity.StudioEventEmitter wooshEmitter;
     public FMODUnity.StudioEventEmitter walkEmitter;
     public FMODUnity.StudioEventEmitter talkEmitter;
+    public FMODUnity.StudioEventEmitter talkOuchyEmitter;
 
     public void Woosh()
     {
