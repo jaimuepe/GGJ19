@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 352893260}
   - component: {fileID: 352893259}
   - component: {fileID: 352893258}
+  - component: {fileID: 352893261}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -342,6 +343,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &352893261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352893257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!1 &517704172
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +874,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &1468362586 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5909152941710057798, guid: 1e559061a631ef14791bed33e80256dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5909152941815849270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468362582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1468362589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,8 +1160,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2ede693282e45468d7904345372f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emitterPointerEnter: {fileID: 0}
+  emitterPointerEnter: {fileID: 1801787765}
   emitterPointerClick: {fileID: 0}
+--- !u!114 &1801787765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801787758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Over
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &1925217871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,6 +1371,11 @@ PrefabInstance:
       propertyPath: clickEmitter
       value: 
       objectReference: {fileID: 592156561}
+    - target: {fileID: 5909152940358708446, guid: 1e559061a631ef14791bed33e80256dd,
+        type: 3}
+      propertyPath: playButton
+      value: 
+      objectReference: {fileID: 1468362586}
     - target: {fileID: 5909152941710057817, guid: 1e559061a631ef14791bed33e80256dd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1399,6 +1453,7 @@ PrefabInstance:
     - {fileID: 7748843630366180005, guid: 1e559061a631ef14791bed33e80256dd, type: 3}
     - {fileID: 7748843630366180007, guid: 1e559061a631ef14791bed33e80256dd, type: 3}
     - {fileID: 5909152940430312585, guid: 1e559061a631ef14791bed33e80256dd, type: 3}
+    - {fileID: 7622993103819192717, guid: 1e559061a631ef14791bed33e80256dd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1e559061a631ef14791bed33e80256dd, type: 3}
 --- !u!224 &5909152941815849271 stripped
 RectTransform:

@@ -97,13 +97,11 @@ public class InteractionsManager : MonoBehaviour
             {
                 return;
             }
-            
+
             if (door.numberTimesUsed == 0 || door.numberTimesUsed == 1)
             {
                 Player.GetComponent<CharacterController2D>().WalkRightEndlessly = true;
-
-                DesertManager dm = FindObjectOfType<DesertManager>();
-                dm.Transition();
+                StartCoroutine(TransitionDesert(door));
             }
             else
             {
@@ -111,11 +109,17 @@ public class InteractionsManager : MonoBehaviour
                 Player.GetComponent<CharacterController2D>().WalkRightEndlessly = true;
                 LevelTransitionManager.Instance.LoadNextLevel();
             }
-
-            door.numberTimesUsed++;
         }
     }
 
+    IEnumerator TransitionDesert(ExitDoorDesert door)
+    {
+        yield return new WaitForSeconds(1.0f);
+        DesertManager dm = FindObjectOfType<DesertManager>();
+        dm.Transition();
+
+        door.numberTimesUsed++;
+    }
     IEnumerator WheelPuzzleActions()
     {
         Player.GetComponent<CharacterController2D>().MovementEnabled = false;

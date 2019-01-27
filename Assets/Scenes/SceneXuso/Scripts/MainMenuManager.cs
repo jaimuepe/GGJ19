@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
@@ -9,18 +10,13 @@ public class MainMenuManager : MonoBehaviour
     public Text tittleText;
     public GameObject fish;
     public Animator canvasAnim, fishAnim, faderAnim;
+    public Button playButton;
 
     public FMODUnity.StudioEventEmitter clickEmitter;
 
     void Start()
     {
         canvasAnim.Play("MainMenu_WriteTittle");
-        //WriteTittle();
-    }
-
-    void Update()
-    {
-        
     }
 
     public void LoadScene()
@@ -31,7 +27,7 @@ public class MainMenuManager : MonoBehaviour
 
     IEnumerator LoadSceneCoroutine()
     {
-        fish.GetComponent<Animator>().Play("Headbutt");
+        // fish.GetComponent<Animator>().Play("Headbutt");
         faderAnim.Play("MainMenu_Fade");
         yield return new WaitForSeconds(3f);
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);

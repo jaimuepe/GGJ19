@@ -51,7 +51,7 @@ public class DesertManager : MonoBehaviour
 
     IEnumerator FadeImage(bool fadeAway, SpriteRenderer sr, int index)
     {
-        float duration = 1.0f;
+        float duration = 2.0f;
 
         // fade from opaque to transparent
         if (fadeAway)
