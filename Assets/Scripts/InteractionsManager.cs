@@ -50,7 +50,7 @@ public class InteractionsManager : MonoBehaviour
             Player.GetComponentInChildren<Animator>().SetBool("headbutt", true);
         }
         else if (interactionId == "exit_door_00" || interactionId == "exit_door_01"
-            || interactionId == "exit_door_02")
+            || interactionId == "exit_door_02" || interactionId == "exit_door_04")
         {
             ExitDoor exitDoor = obj.GetComponent<ExitDoor>();
             if (!exitDoor.usable)

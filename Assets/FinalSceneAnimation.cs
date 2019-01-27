@@ -40,7 +40,7 @@ public class FinalSceneAnimation : MonoBehaviour
         {
             fullyClothedTransform.position = Vector3.MoveTowards(
                 fullyClothedTransform.position,
-                secondPosition, 
+                secondPosition,
                 step);
             yield return null;
         }
@@ -65,7 +65,11 @@ public class FinalSceneAnimation : MonoBehaviour
 
     public void PlaySandParticleSystem()
     {
-        ps.transform.position = fullyClothedMesh.transform.position;
+        ps.transform.position = new Vector3(
+            fullyClothedMesh.transform.position.x,
+            fullyClothedMesh.transform.position.y,
+            fullyClothedMesh.transform.position.z - 1.0f);
+
         ps.Play();
     }
 }
