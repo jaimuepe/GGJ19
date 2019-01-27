@@ -100,12 +100,14 @@ public class InteractionsManager : MonoBehaviour
 
             if (door.numberTimesUsed == 0 || door.numberTimesUsed == 1)
             {
+                Player.GetComponent<CharacterInteractions>().InteractionsEnabled = false;
                 Player.GetComponent<CharacterController2D>().WalkRightEndlessly = true;
                 StartCoroutine(TransitionDesert(door));
             }
             else
             {
                 door.usable = false;
+                Player.GetComponent<CharacterInteractions>().InteractionsEnabled = false;
                 Player.GetComponent<CharacterController2D>().WalkRightEndlessly = true;
                 LevelTransitionManager.Instance.LoadNextLevel();
             }
