@@ -522,6 +522,7 @@ GameObject:
   - component: {fileID: 815123288}
   - component: {fileID: 815123287}
   - component: {fileID: 815123286}
+  - component: {fileID: 815123285}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -529,6 +530,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &815123285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815123284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: eedc50e244835754e845c86e1b71129c, type: 2}
 --- !u!81 &815123286
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1210,6 +1224,41 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.9669811
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910896364987778414, guid: e5be6530106fea9489f062547b92612c,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910896364987778414, guid: e5be6530106fea9489f062547b92612c,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.90057343
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910896364987778414, guid: e5be6530106fea9489f062547b92612c,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 0.7971698
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910896364987778414, guid: e5be6530106fea9489f062547b92612c,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime0
+      value: 382
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910896364987778414, guid: e5be6530106fea9489f062547b92612c,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910896364987778414, guid: e5be6530106fea9489f062547b92612c,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0.945061
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910896364987778414, guid: e5be6530106fea9489f062547b92612c,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 0.8443396
       objectReference: {fileID: 0}
     - target: {fileID: 8910896364987778415, guid: e5be6530106fea9489f062547b92612c,
         type: 3}
