@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: C:\Users\jmuelape\Documents\Fmod_Global2\Fmod_Global2.fspro
-  SourceProjectPathUnformatted: C:\Users\jmuelape\Documents\Fmod_Global2\Fmod_Global2.fspro
-  SourceBankPathUnformatted: C:\Users\jmuelape\Documents\Fmod_Global2\Build
+  sourceProjectPath: C:\Users\nospoon-art\Desktop\GAMEJAM\Fmod_Global2\Fmod_Global2.fspro
+  SourceProjectPathUnformatted: C:\Users\nospoon-art\Desktop\GAMEJAM\Fmod_Global2\Fmod_Global2.fspro
+  SourceBankPathUnformatted: C:\Users\nospoon-art\Desktop\GAMEJAM\Fmod_Global2\Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0
