@@ -22,4 +22,7 @@ public class LastSceneAnimatorReceiver : MonoBehaviour
     {
         splashEmitter.Play();
     }
+
+    public void Walk()
+    { }
 }
