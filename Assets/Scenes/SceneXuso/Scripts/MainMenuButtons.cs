@@ -1,31 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MainMenuButtons : MonoBehaviour
+public class MainMenuButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public FMODUnity.StudioEventEmitter emitterPointerEnter;
     public FMODUnity.StudioEventEmitter emitterPointerClick;
 
-    public void OnPointerEnter()
+    public void OnPointerEnter(PointerEventData data)
     {
         transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
         emitterPointerEnter.Play();
     }
 
-    public void OnPointerExit()
+    public void OnPointerExit(PointerEventData data)
     {
-
         transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
     }
 }

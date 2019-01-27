@@ -57,5 +57,13 @@ public class MainMenuManager : MonoBehaviour
     public void ShowFish()
     {
         fishAnim.Play("MainMenu_ShowFish");
+        StartCoroutine(SetSelectedGameObjectEndOfFrame(playButton));
+    }
+
+    IEnumerator SetSelectedGameObjectEndOfFrame(Button bt)
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
+        EventSystem.current.SetSelectedGameObject(bt.gameObject);
     }
 }
