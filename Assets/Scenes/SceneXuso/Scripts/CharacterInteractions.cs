@@ -72,6 +72,10 @@ public class CharacterInteractions : MonoBehaviour
 
             if (collider)
             {
+                if (lastCollider != collider && lastCollider!=null)
+                {
+                    lastCollider.gameObject.GetComponent<InteractableObjectSprite>().ShowInteractionHelper(false);
+                }
                 lastCollider = collider;
                 interactableObject = collider.gameObject;
                 if (lastCollider != null)

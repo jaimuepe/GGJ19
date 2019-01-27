@@ -12,7 +12,7 @@ public class InputController : MonoBehaviour
     public float VerticalInput { get; private set; }
 
     public bool _onTutorial, _blockMovement;
-    public bool _movementTutorialPassed, _actionTutorialPassed = true;
+    public bool _movementTutorialPassed, _actionTutorialPassed;
     public TutorialManager m_TutorialManager;
 
     private void Start()

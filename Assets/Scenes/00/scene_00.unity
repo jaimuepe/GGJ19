@@ -319,6 +319,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3589835435021488179, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+        type: 3}
+      propertyPath: _isGamepadConnected
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16198c91c61d79e4ebea4faffe88b1eb, type: 3}
 --- !u!4 &142000212 stripped
@@ -1028,7 +1033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1703756594, guid: a8b758e276f87ce48a167e404c79c93e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4729114610318860888, guid: a8b758e276f87ce48a167e404c79c93e,
         type: 3}
@@ -2568,6 +2573,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _blockMovement
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 91727626147931092, guid: 4b4dc843fa383ce41b4aafefdc52b4a6,
+        type: 3}
+      propertyPath: _movementTutorialPassed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 91727626147931092, guid: 4b4dc843fa383ce41b4aafefdc52b4a6,
+        type: 3}
+      propertyPath: _actionTutorialPassed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 91727626147931095, guid: 4b4dc843fa383ce41b4aafefdc52b4a6,
         type: 3}
