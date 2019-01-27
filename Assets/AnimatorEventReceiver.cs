@@ -34,6 +34,7 @@ public class AnimatorEventReceiver : MonoBehaviour
 
     public FMODUnity.StudioEventEmitter wooshEmitter;
     public FMODUnity.StudioEventEmitter walkEmitter;
+    public FMODUnity.StudioEventEmitter talkEmitter;
 
     public void Woosh()
     {
@@ -44,5 +45,10 @@ public class AnimatorEventReceiver : MonoBehaviour
     public void Walk()
     {
         walkEmitter.Play();
+    }
+
+    public void Talk()
+    {
+        talkEmitter.Play();
     }
 }

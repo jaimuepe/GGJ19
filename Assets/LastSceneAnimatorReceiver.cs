@@ -28,4 +28,7 @@ public class LastSceneAnimatorReceiver : MonoBehaviour
 
     public void Walk()
     { }
+
+    public void Talk()
+    { }
 }
