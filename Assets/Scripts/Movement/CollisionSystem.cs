@@ -81,63 +81,9 @@ public class CollisionSystem : MonoBehaviour
 
         mDeltaMovement = deltaMovement;
 
-        HandleVerticalCollisions();
         HandleHorizontalCollisions();
 
         return mDeltaMovement;
-    }
-
-    private void HandleVerticalCollisions()
-    {
-        Vector2 origin = Position + SkinWidth * Vector2.right + (mDeltaMovement.y > 0.0f ? TopLeftCornerOffset : BottomLeftCornerOffset);
-
-        Vector2 direction = mDeltaMovement.y > 0.0f ? Vector2.up : Vector2.down;
-        float rayDistance = Mathf.Abs(mDeltaMovement.y);
-
-        float distanceBetweenRays = (BottomRightCornerOffset.x - BottomLeftCornerOffset.x - 2 * SkinWidth) / (NumberOfVerticalRays - 1);
-
-        bool collision = false;
-
-        for (int i = 0; i < NumberOfVerticalRays; i++)
-        {
-            Vector2 rayOrigin = origin + i * distanceBetweenRays * Vector2.right;
-
-            int hits = Physics2D.RaycastNonAlloc(rayOrigin, direction, raycastHitResults, rayDistance, obstacleLayer);
-            if (hits > 0)
-            {
-                collision = true;
-                for (int j = 0; j < hits; j++)
-                {
-                    RaycastHit2D hit = raycastHitResults[j];
-                    float hitDistance = hit.distance;
-
-                    CollisionObject collisionObject = hit.collider.gameObject.GetComponent<CollisionObject>();
-
-                    if (direction.y > 0.0f && collisionObject.collideFromBottom
-                        || direction.y < 0.0f && collisionObject.collideFromTop)
-                    {
-                        rayDistance = Mathf.Min(rayDistance, hitDistance);
-                    }
-                }
-            }
-
-            Debug.DrawRay(rayOrigin, rayDistance * direction, Color.red);
-        }
-
-        if (collision)
-        {
-            data.colliding = true;
-            if (mDeltaMovement.y > 0.0f)
-            {
-                data.collisionSides |= CollisionData.COLLIDE_TOP;
-            }
-            else
-            {
-                data.collisionSides |= CollisionData.COLLIDE_BOTTOM;
-            }
-        }
-
-        mDeltaMovement.y = Mathf.Sign(mDeltaMovement.y) * rayDistance;
     }
 
     private void HandleHorizontalCollisions()

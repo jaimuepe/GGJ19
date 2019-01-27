@@ -21,8 +21,6 @@ public class CharacterController2D : MonoBehaviour
     [NonSerialized]
     public MovementSystem movementSystem;
     [NonSerialized]
-    public JumpGravitySystem jumpSystem;
-    [NonSerialized]
     public CollisionSystem collisionSystem;
     [NonSerialized]
     public StairsSystem stairsSystem;
@@ -52,12 +50,6 @@ public class CharacterController2D : MonoBehaviour
         if (!movementSystem)
         {
             movementSystem = gameObject.AddComponent<MovementSystem>();
-        }
-
-        jumpSystem = GetComponent<JumpGravitySystem>();
-        if (!jumpSystem)
-        {
-            jumpSystem = gameObject.AddComponent<JumpGravitySystem>();
         }
 
         stairsSystem = GetComponent<StairsSystem>();
@@ -97,11 +89,10 @@ public class CharacterController2D : MonoBehaviour
         else
         {
             movementSystem.Calculate();
-            jumpSystem.Calculate();
 
             Vector2 mTotalVelocity = new Vector2(
                 movementSystem.AccumulatedVelocity,
-                jumpSystem.AccumulatedVelocity.y);
+                0.0f);
 
             deltaMovement = mTotalVelocity * Time.deltaTime;
 
@@ -112,7 +103,6 @@ public class CharacterController2D : MonoBehaviour
             }
 
             movementSystem.UpdateCollisionData();
-            jumpSystem.UpdateCollisionData();
         }
 
         if (deltaMovement.x != 0.0f)

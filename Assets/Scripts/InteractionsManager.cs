@@ -50,7 +50,7 @@ public class InteractionsManager : MonoBehaviour
             Player.GetComponentInChildren<Animator>().SetBool("headbutt", true);
         }
         else if (interactionId == "exit_door_00" || interactionId == "exit_door_01"
-            || interactionId == "exit_door_02")
+            || interactionId == "exit_door_02" || interactionId == "exit_door_04")
         {
             ExitDoor exitDoor = obj.GetComponent<ExitDoor>();
             if (!exitDoor.usable)
@@ -128,7 +128,7 @@ public class InteractionsManager : MonoBehaviour
         Player.GetComponent<CharacterInteractions>().InteractionsEnabled = false;
 
         GameObject topLight = GameObject.FindGameObjectWithTag("TopLight");
-        topLight.SetActive(false);
+        topLight.GetComponent<FlickeringLight>().TurnOffLight();
 
         GameObject doorLight = GameObject.FindGameObjectWithTag("DoorLight");
 
@@ -136,6 +136,10 @@ public class InteractionsManager : MonoBehaviour
 
         yield return new WaitForSeconds(2.4f);
         doorLight.GetComponent<Animator>().SetBool("fadein", true);
+
+        FMODUnity.StudioEventEmitter emitter =
+            GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<FMODUnity.StudioEventEmitter>();
+        emitter.SetParameter("Room", 1.0f);
 
         Player.GetComponent<CharacterController2D>().MovementEnabled = true;
         Player.GetComponent<CharacterInteractions>().InteractionsEnabled = true;

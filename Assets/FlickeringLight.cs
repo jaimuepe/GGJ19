@@ -39,6 +39,20 @@ public class FlickeringLight : MonoBehaviour
         }
     }
 
+    public void TurnOffLight()
+    {
+        StopAllCoroutines();
+
+        sr.enabled = false;
+
+        for (int i = 0; i < symbols.Length; i++)
+        {
+            symbols[i].SetActive(true);
+        }
+
+        gameObject.SetActive(false);
+    }
+
     private IEnumerator Flicker()
     {
         bool on = false;
@@ -55,7 +69,6 @@ public class FlickeringLight : MonoBehaviour
                     symbols[i].SetActive(true);
                 }
 
-                // humEmitter.SetParameter("On/Off", 0);
                 yield return new WaitForSeconds(Random.Range(minOffTime, maxOffTime));
             }
             else
@@ -68,7 +81,6 @@ public class FlickeringLight : MonoBehaviour
                     symbols[i].SetActive(false);
                 }
 
-                // humEmitter.SetParameter("On/Off", 1);
                 yield return new WaitForSeconds(Random.Range(minOnTime, maxOnTime));
             }
             yield return new WaitForSeconds(Random.Range(minDelayTime, maxDelayTime));
