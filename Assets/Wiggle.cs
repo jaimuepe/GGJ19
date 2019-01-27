@@ -29,8 +29,8 @@ public class Wiggle : MonoBehaviour
     private void Update()
     {
         mTransform.position = new Vector3(
-            basePosition.x,
-            basePosition.y + magnitude * Mathf.Cos(phase + Time.time / frequency),
+            mTransform.parent.position.x,
+            mTransform.parent.position.y + magnitude * Mathf.Cos(phase + Time.time / frequency),
             basePosition.z);
     }
 }

@@ -12,12 +12,16 @@ public class SwitchTvChannel : MonoBehaviour
         StartCoroutine(SwitchChannel());    
     }
 
+    public FMODUnity.StudioEventEmitter emitter;
+
     IEnumerator SwitchChannel()
     {
         while (true)
         {
             Sprite s = sprites[Random.Range(0, sprites.Length)];
             sr.sprite = s;
+
+            emitter.Play();
 
             yield return new WaitForSeconds(Random.Range(1.0f, 3.0f));
         }
