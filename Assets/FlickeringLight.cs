@@ -16,27 +16,10 @@ public class FlickeringLight : MonoBehaviour
     SpriteRenderer sr;
     public GameObject[] symbols;
 
-    public FMODUnity.StudioEventEmitter humEmitter;
-
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         StartCoroutine(Flicker());
-
-        humEmitter.SetParameter("On/Off", 1);
-        humEmitter.Play();
-    }
-
-    private void Update()
-    {
-        if (sr.enabled)
-        {
-            humEmitter.SetParameter("On/Off", 1);
-        }
-        else
-        {
-            humEmitter.SetParameter("On/Off", 0);
-        }
     }
 
     public void TurnOffLight()
