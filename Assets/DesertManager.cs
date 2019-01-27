@@ -25,7 +25,7 @@ public class DesertManager : MonoBehaviour
         bg1.color = new Color(bg1.color.r, bg1.color.g, bg1.color.b, 0);
         light1.color = new Color(light1.color.r, light1.color.g, light1.color.b, 0);
         bg2.color = new Color(bg2.color.r, bg2.color.g, bg2.color.b, 0);
-        light1.color = new Color(light2.color.r, light2.color.g, light2.color.b, 0);
+        light2.color = new Color(light2.color.r, light2.color.g, light2.color.b, 0);
     }
 
     public void Transition()

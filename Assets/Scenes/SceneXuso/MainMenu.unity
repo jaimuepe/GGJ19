@@ -485,6 +485,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &592156560 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5909152940358708437, guid: 1e559061a631ef14791bed33e80256dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5909152941815849270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &592156561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592156560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Click
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &791372677
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,6 +810,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2ede693282e45468d7904345372f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emitterPointerEnter: {fileID: 1468362589}
+  emitterPointerClick: {fileID: 0}
 --- !u!114 &1468362584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,6 +860,29 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &1468362589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468362582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Over
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &1484319193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2ede693282e45468d7904345372f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emitterPointerEnter: {fileID: 0}
+  emitterPointerClick: {fileID: 0}
 --- !u!1 &1925217871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,6 +1317,11 @@ PrefabInstance:
       propertyPath: faderAnim
       value: 
       objectReference: {fileID: 1484319198}
+    - target: {fileID: 5909152940358708446, guid: 1e559061a631ef14791bed33e80256dd,
+        type: 3}
+      propertyPath: clickEmitter
+      value: 
+      objectReference: {fileID: 592156561}
     - target: {fileID: 5909152941710057817, guid: 1e559061a631ef14791bed33e80256dd,
         type: 3}
       propertyPath: m_AnchoredPosition.y

@@ -92,7 +92,13 @@ public class InteractionsManager : MonoBehaviour
         else if (interactionId == "exit_door_desert")
         {
             ExitDoorDesert door = obj.GetComponent<ExitDoorDesert>();
-            if (door.numberTimesUsed == 0 || door.numberTimesUsed == 1 || door.numberTimesUsed == 2)
+
+            if (!door.usable)
+            {
+                return;
+            }
+            
+            if (door.numberTimesUsed == 0 || door.numberTimesUsed == 1)
             {
                 Player.GetComponent<CharacterController2D>().WalkRightEndlessly = true;
 

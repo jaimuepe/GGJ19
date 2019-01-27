@@ -10,6 +10,8 @@ public class MainMenuManager : MonoBehaviour
     public GameObject fish;
     public Animator canvasAnim, fishAnim, faderAnim;
 
+    public FMODUnity.StudioEventEmitter clickEmitter;
+
     void Start()
     {
         canvasAnim.Play("MainMenu_WriteTittle");
@@ -23,6 +25,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void LoadScene()
     {
+        clickEmitter.Play();
         StartCoroutine(LoadSceneCoroutine());
     }
 
