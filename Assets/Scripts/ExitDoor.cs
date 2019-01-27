@@ -20,4 +20,13 @@ public class ExitDoor : MonoBehaviour
     {
         emitterHit.Play();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (usable && collision.CompareTag("Player"))
+        {
+            InteractableObjectSprite ios = GetComponent<InteractableObjectSprite>();
+            InteractionsManager.Instance.ResolveInteraction(ios.id, gameObject);
+        }
+    }
 }
