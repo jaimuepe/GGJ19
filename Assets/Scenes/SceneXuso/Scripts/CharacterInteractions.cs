@@ -20,6 +20,8 @@ public class CharacterInteractions : MonoBehaviour
 
     public bool InteractionsEnabled { get; set; } = true;
 
+    public Collider2D lastCollider;
+
     private void Start()
     {
         characterController = GetComponent<CharacterController2D>();
@@ -70,7 +72,20 @@ public class CharacterInteractions : MonoBehaviour
 
             if (collider)
             {
+                lastCollider = collider;
                 interactableObject = collider.gameObject;
+                if (lastCollider != null)
+                {
+                    interactableObject.GetComponent<InteractableObjectSprite>().ShowInteractionHelper(true);
+                }
+            }
+            else
+            {
+                if (lastCollider != null)
+                {
+                    lastCollider.gameObject.GetComponent<InteractableObjectSprite>().ShowInteractionHelper(false);
+                    lastCollider = null;
+                }
             }
         }
 

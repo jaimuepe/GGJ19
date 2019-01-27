@@ -402,6 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: exit_door_02
+  InteractionHelper: {fileID: 1606913720}
 --- !u!61 &331704082
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -438,7 +439,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.03, y: -0.72, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1606913721}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1050,6 +1052,87 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1606913719
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 331704083}
+    m_Modifications:
+    - target: {fileID: 3589835435021488204, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+        type: 3}
+      propertyPath: m_Name
+      value: InteractionHelper
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589835435021488178, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.74000025
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589835435021488178, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589835435021488178, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589835435021488178, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589835435021488178, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589835435021488178, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589835435021488178, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589835435021488178, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589835435021488178, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589835435021488178, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589835435021488178, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 16198c91c61d79e4ebea4faffe88b1eb, type: 3}
+--- !u!1 &1606913720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3589835435021488204, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1606913719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1606913721 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3589835435021488178, guid: 16198c91c61d79e4ebea4faffe88b1eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1606913719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1869310516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,6 +1223,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InputController
+      objectReference: {fileID: 0}
+    - target: {fileID: 91727626147931092, guid: 4b4dc843fa383ce41b4aafefdc52b4a6,
+        type: 3}
+      propertyPath: _movementTutorialPassed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 91727626147931092, guid: 4b4dc843fa383ce41b4aafefdc52b4a6,
+        type: 3}
+      propertyPath: _actionTutorialPassed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 91727626147931095, guid: 4b4dc843fa383ce41b4aafefdc52b4a6,
         type: 3}
