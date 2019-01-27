@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ControllerCrawl : MonoBehaviour
@@ -41,13 +42,20 @@ public class ControllerCrawl : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
 
-        StartCoroutine(Fade());
+        StartCoroutine(Fade(3.0f));
         StartCoroutine(Zoom());
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(4.0f);
 
-        StartCoroutine(UnFade());
+        endGameImage.gameObject.SetActive(true);
+
+        StartCoroutine(UnFade(3.0f));
+        yield return new WaitForSeconds(6.0f);
+
+        StartCoroutine(Fade(1.0f));
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(0);
     }
-
+    
     IEnumerator Zoom()
     {
         Camera mainCamera = Camera.main;
@@ -69,9 +77,8 @@ public class ControllerCrawl : MonoBehaviour
         }
     }
 
-    IEnumerator Fade()
+    IEnumerator Fade(float duration)
     {
-        float duration = 3.0f;
 
         float start = Time.time;
         float elapsed = 0;
@@ -91,11 +98,8 @@ public class ControllerCrawl : MonoBehaviour
         fadeOutPanel.color = endColor;
     }
 
-    IEnumerator UnFade()
+    IEnumerator UnFade(float duration)
     {
-        endGameImage.gameObject.SetActive(true);
-
-        float duration = 3.0f;
 
         float start = Time.time;
         float elapsed = 0;

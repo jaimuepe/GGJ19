@@ -5,7 +5,7 @@ using UnityEngine;
 public class FinalSceneAnimation : MonoBehaviour
 {
     public GameObject fullyClothedMesh;
-    public GameObject withUnicycleMesh;
+    public GameObject clothMesh;
     public GameObject unicycleMesh;
     public GameObject fishMesh;
 
@@ -56,6 +56,8 @@ public class FinalSceneAnimation : MonoBehaviour
         fishMesh.transform.position = fullyClothedMesh.transform.position;
 
         fullyClothedMesh.gameObject.SetActive(false);
+        clothMesh.gameObject.SetActive(true);
+        unicycleMesh.gameObject.SetActive(true);
         fishMesh.gameObject.SetActive(true);
 
         yield return null;
